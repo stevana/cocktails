@@ -32,7 +32,7 @@ deploy:
   github-token: $GITHUB_TOKEN
   on:
     branch: master
-  local_dir: /tmp/cocktails_dist
+  local-dir: /tmp/cocktails_dist
 
 notifications:
   email: false
