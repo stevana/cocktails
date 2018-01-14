@@ -47,6 +47,9 @@ neo4jUrl   = "http://localhost:7474"
 url        = "http://localhost:7474/db/data/cypher"
 cypherFile = "cocktails.cypher"
 
+distDir :: FilePath
+distDir = "/tmp/cocktails_dist"
+
 ------------------------------------------------------------------------
 
 startDb :: IO ()
@@ -96,7 +99,7 @@ setupDb = do
     Right yaml -> do
       let ingredientsCypher = ingredients yaml
       -- T.putStrLn (T.unlines ingredientsCypher)
-      T.writeFile ("dist/" <> cypherFile) (T.unlines ingredientsCypher)
+      T.writeFile (distDir </> cypherFile) (T.unlines ingredientsCypher)
 
   cocktailsFile <- getDataFileName "data/cocktails.yaml"
   decodeFileEither cocktailsFile >>= \case
@@ -104,12 +107,12 @@ setupDb = do
     Right yaml -> do
       let cocktailsCypher = cocktails yaml
       -- T.putStrLn (T.unlines cocktailsCypher)
-      T.appendFile ("dist/" <> cypherFile) (T.unlines cocktailsCypher)
+      T.appendFile (distDir </> cypherFile) (T.unlines cocktailsCypher)
       let recipesCypher = recipes yaml
       -- T.putStrLn (T.unlines recipesCypher)
-      T.appendFile ("dist/" <> cypherFile) (T.unlines recipesCypher)
+      T.appendFile (distDir </> cypherFile) (T.unlines recipesCypher)
 
-  cypher <- T.readFile ("dist/" <> cypherFile)
+  cypher <- T.readFile (distDir </> cypherFile)
 
   r <- post url (object [ "query" .= cypher ])
   return ()
@@ -190,7 +193,7 @@ process v = do
       r <- post url (object [ "query" .= query ])
       let json = r ^?! responseBody . key "data" . values . values
           bs   = Json.encode json
-          fp   = "dist/" <> T.unpack name
+          fp   = distDir </> T.unpack name
       -- BS.putStrLn bs
       BS.writeFile (fp <.> ".json") bs
       LT.writeFile (fp <.> "html") (renderMustache template' json)
@@ -205,7 +208,7 @@ process v = do
             [value] = param ^?! _Object . to HM.elems
             vstr    = value ^?! _String
                     . to (T.unpack . T.filter isAsciiAlphaNum)
-            fp      = "dist/" <> T.unpack name <> "-" <> vstr
+            fp      = distDir </> T.unpack name <> "-" <> vstr
         -- BS.putStrLn bs
         BS.writeFile (fp <.> "json") bs
         LT.writeFile (fp <.> "html") (renderMustache template' json)
