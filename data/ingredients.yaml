@@ -1,0 +1,44 @@
+- name: Absinthe
+- name: Amaretto
+- name: Angostura bitters
+- name: Apricot Brandy
+- name: Benedictine
+- name: Bourbon Whiskey
+- name: Cachaca
+- name: Calvados
+- name: Campari
+- name: Champagne
+- name: Cherry
+- name: Cognac
+- name: Cointreau
+- name: Dark Rum
+- name: Dry Vermouth
+- name: Galliano
+- name: Gin
+# - name: Gin (Old Tom)
+- name: Gomme Syrup
+- name: Grand Marnier
+- name: Green Chartreuse
+- name: Grenadine
+- name: Kahlua
+- name: Lemon juice
+- name: Lemon zest
+- name: Light Rum
+- name: Lime juice
+- name: Maraschino
+- name: Orange bitters
+- name: Orange juice
+- name: Peach bitters
+# - name: "Peychaud's bitters"
+- name: Pineapple juice
+- name: Port wine
+- name: Raspberry Syrup
+- name: Sweet Vermouth
+- name: Rich Syrup
+- name: Rye Whiskey
+- name: Simple Syrup
+# - name: St. Germain
+- name: Tequila
+- name: Vodka
+- name: Whisky
+- name: Yellow Chartreuse

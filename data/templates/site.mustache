@@ -1,0 +1,18 @@
+{{>header}}
+{{>menu}}
+{{#cocktails}}
+
+<h1>{{name}}</h1>
+
+<i>({{timing}})</i>
+
+<ul>
+{{#ingredients}}
+ <li>{{amount}} {{unit}} {{name}}</li>
+{{/ingredients}}
+</ul>
+
+{{preparation}}.
+
+{{/cocktails}}
+{{>footer}}

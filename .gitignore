@@ -1,0 +1,4 @@
+.stack-work/
+cocktails.cabal
+*~
+dist/

@@ -1,0 +1,50 @@
+- name: Boulevardier
+  timing: Pre-dinner
+  ingredients:
+    - name: Bourbon Whiskey
+      amount: 3
+      unit: cl
+    - name: Sweet Vermouth
+      amount: 3
+      unit: cl
+    - name: Campari
+      amount: 3
+      unit: cl
+  preparation: Stirred
+  taste:
+    - Bitter
+    - Sweet
+
+- name:   Manhattan
+  timing: Pre-dinner
+  ingredients:
+    - name: RyeWhiskey
+      amount: 5
+      unit: cl
+    - name: Sweet Vermouth
+      amount: 2
+      unit: cl
+    - name: Angostura bitters
+      amount: 1
+      unit: dash
+  preparation: Stirred
+  taste: 
+    - Boozy
+    - Sweet
+
+- name: Negroni
+  timing: Pre-dinner
+  ingredients:
+    - name: Gin
+      amount: 3
+      unit: cl
+    - name: Sweet Vermouth
+      amount: 3
+      unit: cl
+    - name: Campari
+      amount: 3
+      unit: cl
+  preparation: Stirred
+  taste:
+    - Bitter
+    - Sweet

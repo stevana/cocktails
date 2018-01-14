@@ -1,0 +1,61 @@
+name:                cocktails
+version:             0.1.0.0
+github:              "stevana/cocktails"
+license:             BSD2
+author:              "Stevan Andjelkovic"
+maintainer:          "example@example.com"
+copyright:           "2018 Stevan Andjelkovic"
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+description: Please see the README on Github at <https://github.com/stevana/cocktails#readme>
+
+extra-source-files:
+  - README.md
+  - CHANGELOG.md
+
+data-files:
+  - data/*.yaml
+  - data/templates/*.mustache
+
+dependencies:
+  - aeson
+  - base >= 4.7 && < 5
+  - bytestring
+  - filepath
+  - lens
+  - lens-aeson
+  - microstache
+  - process
+  - text
+  - unordered-containers
+  - vector
+  - wreq
+  - yaml
+
+library:
+  source-dirs: src
+
+executables:
+  cocktails:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - cocktails
+
+tests:
+  cocktails-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - cocktails
