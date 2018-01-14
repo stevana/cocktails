@@ -59,7 +59,7 @@ startDb = do
     , "--publish=7474:7474"
     , "--publish=7687:7687"
     , "--env=NEO4J_AUTH=none"
-    , "neo4j"
+    , "neo4j:3.3.1"
     ]
   case exitCode of
     ExitSuccess      -> return ()
