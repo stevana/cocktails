@@ -48,7 +48,7 @@ url        = "http://localhost:7474/db/data/cypher"
 cypherFile = "cocktails.cypher"
 
 distDir :: FilePath
-distDir = "/tmp/cocktails_dist"
+distDir = "dist"
 
 ------------------------------------------------------------------------
 
