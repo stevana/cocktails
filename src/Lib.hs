@@ -31,9 +31,9 @@ import           Data.Vector                (Vector)
 import qualified Data.Vector                as V
 import           Data.Yaml
 import           Network.Wreq
-import           Prelude                    hiding (FilePath)
+import           System.Directory           (createDirectoryIfMissing)
 import           System.Exit                (ExitCode (..))
-import           System.FilePath            ((<.>))
+import           System.FilePath            ((<.>), (</>))
 import           System.Process             (rawSystem)
 import           Text.Microstache
 
@@ -92,6 +92,8 @@ setupDb = do
   let query :: Text
       query = "MATCH(n) DETACH DELETE n;"
   r <- post url (object [ "query"  .= query ])
+
+  createDirectoryIfMissing False distDir
 
   ingredientsFile <- getDataFileName "data/ingredients.yaml"
   decodeFileEither ingredientsFile >>= \case
