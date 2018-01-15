@@ -36,4 +36,6 @@
   params:
     - ingredient: Gin
     - ingredient: Whiskey
+    - ingredient: Rum
+    - ingredient: Champagne
   template: site

@@ -1,21 +1,122 @@
-- name: Boulevardier
+- name: Americano
   timing: Pre-dinner
   ingredients:
-    - name: Bourbon Whiskey
+    - name: Campari
       amount: 3
       unit: cl
     - name: Sweet Vermouth
       amount: 3
       unit: cl
-    - name: Campari
+    - name: Soda water
+      amount: 1
+      unit: splash
+  preparation: Stirred
+
+- name: Daiquiri
+  timing: Pre-dinner
+  ingredients:
+    - name: Light Rum
+      amount: 4.5
+      unit: cl
+    - name: Lime juice
+      amount: 2.5
+      unit: cl
+    - name: Simple syrup
+      amount: 1.5
+      unit: cl
+  preparation: Shaken
+
+- name: Hemingway Daiquiri
+  timing: Pre-dinner
+  ingredients:
+    - name: Light Rum
+      amount: 6
+      unit: cl
+    - name: Lime juice
+      amount: 2.5
+      unit: cl
+    - name: Maraschino
+      amount: 1.5
+      unit: cl
+    - name: Grapefruit juice
+      amount: 1.5
+      unit: cl
+  preparation: Shaken
+
+- name: Whiskey Sour
+  timing: Pre-dinner
+  ingredients:
+    - name: Bourbon Whiskey
+      amount: 4.5
+      unit: cl
+    - name: Lemon juice
       amount: 3
       unit: cl
-  preparation: Stirred
-  taste:
-    - Bitter
-    - Sweet
+    - name: Simple syrup
+      amount: 1.5
+      unit: cl
+    - name: Egg white
+      amount: 1
+      unit: dash
+  preparation: Shaken
 
-- name:   Manhattan
+- name: Napa Vally Sour
+  timing: Pre-dinner
+  ingredients:
+    - name: Rye Whiskey
+      amount: 6
+      unit: cl
+    - name: Lemon juice
+      amount: 2
+      unit: cl
+    - name: Red wine syrup
+      amount: 2
+      unit: cl
+    - name: Egg white
+      amount: 1
+      unit: dash
+  preparation: Shaken
+
+- name: Grand Marnier Sour
+  timing: Pre-dinner
+  ingredients:
+    - name: Grand Marnier
+      amount: 4
+      unit: cl
+    - name: Lemon juice
+      amount: 3
+      unit: cl
+    - name: Egg white
+      amount: 1
+      unit: dash
+  preparation: Shaken
+
+- name: Bacardi
+  timing: Pre-dinner
+  ingredients:
+    - name: Light Rum
+      amount: 4.5
+      unit: cl
+    - name: Lemon juice
+      amount: 2
+      unit: cl
+    - name: Grenadine
+      amount: 1
+      unit: cl
+  preparation: Shaken
+
+- name: Dry Martini
+  timing: Pre-dinner
+  ingredients:
+    - name: Gin
+      amount: 6
+      unit: cl
+    - name: Dry Vermouth
+      amount: 1
+      unit: cl
+  preparation: Stirred
+
+- name: Manhattan
   timing: Pre-dinner
   ingredients:
     - name: RyeWhiskey
@@ -48,3 +149,99 @@
   taste:
     - Bitter
     - Sweet
+
+- name: Boulevardier
+  timing: Pre-dinner
+  ingredients:
+    - name: Bourbon Whiskey
+      amount: 3
+      unit: cl
+    - name: Sweet Vermouth
+      amount: 3
+      unit: cl
+    - name: Campari
+      amount: 3
+      unit: cl
+  preparation: Stirred
+  taste:
+    - Bitter
+    - Sweet
+
+- name: Old Fashioned
+  timing: Pre-dinner
+  ingredients:
+    - name: Rye Whiskey
+      amount: 6
+      unit: cl
+    - name: Simple syrup
+      amount: 1
+      unit: cl
+    - name: Angostura bitters
+      amount: 2
+      unit: dashes
+  preparation: Stirred
+
+- name: Blood and Sand
+  timing: Pre-dinner
+  ingredients:
+    - name: Whisky
+      amount: 4
+      unit: cl
+    - name: Sweet Vermouth
+      amount: 2
+      unit: cl
+    - name: Cherry Heering
+      amount: 2
+      unit: cl
+    - name: Orange juice
+      amount: 2
+      unit: cl
+  preparation: Stirred
+
+- name: Cynar Toronto
+  timing: Pre-dinner
+  ingredients:
+    - name: Rye Whiskey
+      amount: 6
+      unit: cl
+    - name: Cynar
+      amount: 2
+      unit: cl
+    - name: Angostura bitters
+      amount: 4
+      unit: dashes
+  preparation: Stirred
+  taste:
+    - Bitter
+    - Sweet
+
+- name: Bitter Mimosa
+  timing: All day
+  ingredients:
+    - name: Champagne
+      amount: 9
+      unit: cl
+    - name: Cynar
+      amount: 2
+      unit: cl
+    - name: Grapefruit juice
+      amount: 9
+      unit: cl
+  preparation: Stirred
+
+- name: Boulevard
+  timing: Pre-dinner
+  ingredients:
+    - name: Bourbon Whiskey
+      amount: 7.5
+      unit: cl
+    - name: Grand Marnier
+      amount: 1.5
+      unit: cl
+    - name: Dry Vermouth
+      amount: 3
+      unit: cl
+    - name: Orange bitters
+      amount: 2
+      unit: dashes
+  preparation: Stirred

@@ -5,6 +5,7 @@
 - name: Benedictine
 - name: Bourbon Whiskey
 - name: Cachaca
+- name: Cynar
 - name: Calvados
 - name: Campari
 - name: Champagne
@@ -18,6 +19,7 @@
 # - name: Gin (Old Tom)
 - name: Gomme Syrup
 - name: Grand Marnier
+- name: Grapefruit juice
 - name: Green Chartreuse
 - name: Grenadine
 - name: Kahlua
@@ -42,3 +44,6 @@
 - name: Vodka
 - name: Whisky
 - name: Yellow Chartreuse
+- name: Soda water
+- name: Egg white
+- name: Red wine syrup
