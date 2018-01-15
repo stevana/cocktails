@@ -9,8 +9,9 @@ The database of recipes can be found in `data/cocktails.yaml`, the
 recipes must only mention ingredients that are listed in
 `data/ingredients.yaml`.
 
-The generated website is hosted on (https://stevana.github.io/cocktails)[Github
-pages], and updated automatically upon changes to the cocktail database.
+The generated website is hosted on [Github
+pages](https://stevana.github.io/cocktails), and updated automatically upon
+changes to the cocktail database.
 
 ### See also
 
