@@ -16,6 +16,7 @@ import           Control.Lens               (to, traversed, (^.), (^..), (^?),
 import           Control.Monad
 import           Data.Aeson                 as Json
 import           Data.Aeson.Lens
+import           Data.Scientific
 import qualified Data.ByteString.Lazy.Char8 as BS
 import           Data.Char                  (isAlphaNum, isAscii)
 import qualified Data.HashMap.Lazy          as HM
@@ -126,16 +127,18 @@ recipes (Array vec) = concatMap go (V.toList vec)
   go v = flip map (zip ingredients [0..]) $ \(ingredient, ix) ->
            create (v^?! key "name" . _String)
                   (ingredient ^?! key "name"   . _String)
-                  (ingredient ^?! key "amount" . _Integer)
+                  (ingredient ^?! key "amount" . _Number)
                   (ingredient ^?! key "unit"   . _String)
                   ix
     where
     ingredients = v ^?! key "ingredients" . _Array . to V.toList
 
-    create :: Text -> Text -> Integer -> Text -> Int -> Text
+    create :: Text -> Text -> Scientific -> Text -> Int -> Text
     create cname iname amount unit ix = mconcat
       [ "CREATE (", T.filter isAsciiAlphaNum cname, ")-[:CONTAINS "
-      , "{amount: ", T.pack (show amount)
+      , "{amount: ", T.pack $ case floatingOrInteger amount of
+                               Left  r -> show r
+                               Right i -> show i
       , ", unit: \"", unit, "\""
       , ", index: ", T.pack (show ix)
       , "}]->(", T.filter isAsciiAlphaNum iname, ")"

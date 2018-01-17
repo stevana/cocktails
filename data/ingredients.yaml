@@ -17,7 +17,7 @@
 - name: Galliano
 - name: Gin
 # - name: Gin (Old Tom)
-- name: Gomme Syrup
+- name: Gomme syrup
 - name: Grand Marnier
 - name: Grapefruit juice
 - name: Green Chartreuse
@@ -34,11 +34,11 @@
 # - name: "Peychaud's bitters"
 - name: Pineapple juice
 - name: Port wine
-- name: Raspberry Syrup
+- name: Raspberry syrup
 - name: Sweet Vermouth
-- name: Rich Syrup
+- name: Rich syrup
 - name: Rye Whiskey
-- name: Simple Syrup
+- name: Simple syrup
 # - name: St. Germain
 - name: Tequila
 - name: Vodka

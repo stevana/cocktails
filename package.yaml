@@ -30,6 +30,7 @@ dependencies:
   - lens-aeson
   - microstache
   - process
+  - scientific
   - text
   - unordered-containers
   - vector
