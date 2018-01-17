@@ -167,6 +167,20 @@
     - Bitter
     - Sweet
 
+- name: Old Pal
+  timing: Pre-dinner
+  ingredients:
+    - name: Rye Whiskey
+      amount: 3
+      unit: cl
+    - name: Dry Vermouth
+      amount: 3
+      unit: cl
+    - name: Campari
+      amount: 3
+      unit: cl
+  preparation: Stirred
+
 - name: Old Fashioned
   timing: Pre-dinner
   ingredients:
@@ -245,3 +259,100 @@
       amount: 2
       unit: dashes
   preparation: Stirred
+
+- name: Angel face
+  timing: All day
+  ingredients:
+    - name: Gin
+      amount: 3
+      unit: cl
+    - name: Apricot Brandy
+      amount: 3
+      unit: cl
+    - name: Calvados
+      amount: 3
+      unit: cl
+  preparation: Shaken
+
+- name: Aviation
+  timing: All day
+  ingredients:
+    - name: Gin
+      amount: 4.5
+      unit: cl
+    - name: Lemon juice
+      amount: 2.2
+      unit: cl
+    - name: Maraschino
+      amount: 1
+      unit: tsp
+    - name: Creme de Violette
+      amount: 1
+      unit: tsp
+  preparation: Shaken
+  source: Recipes for Mixed Drinks by Hugo Ensslin (1916)
+
+- name: White lady
+  timing: All day
+  ingredients:
+    - name: Gin
+      amount: 4
+      unit: cl
+    - name: Triple Sec
+      amount: 3
+      unit: cl
+    - name: Lemon juice
+      amount: 2
+      unit: cl
+  preparation: Shaken
+
+- name: Between the sheets
+  timing: All day
+  ingredients:
+    - name: Light Rum
+      amount: 3
+      unit: cl
+    - name: Cognac
+      amount: 3
+      unit: cl
+    - name: Triple Sec
+      amount: 3
+      unit: cl
+    - name: Lemon juice
+      amount: 2
+      unit: cl
+  preparation: Shaken
+
+- name: Cosmopolitan
+  timing: All day
+  ingredients:
+    - name: Vodka
+      amount: 4
+      unit: cl
+    - name: Triple Sec
+      amount: 1.5
+      unit: cl
+    - name: Lime juice
+      amount: 1.5
+      unit: cl
+    - name: Cranberry juice
+      amount: 3
+      unit: cl
+  preparation: Shaken
+
+- name: Casino
+  timing: All day
+  ingredients:
+    - name: Old Tom Gin
+      amount: 4
+      unit: cl
+    - name: Maraschino
+      amount: 1
+      unit: cl
+    - name: Lemon juice
+      amount: 1
+      unit: cl
+    - name: Orange bitters
+      amount: 1
+      unit: dash
+  preparation: Shaken

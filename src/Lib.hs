@@ -183,7 +183,7 @@ makeMenu
   . go
   where
   go _ =
-    "<a href=index.html>all</a> | <a href=ingredient-Gin.html>gin</a> | <a href=ingredient-Whiskey.html>whiskey</a> | <a href=ingredient-Rum.html>rum</a> | <a href=ingredient-Champagne.html>champagne</a><br />"
+    "<a href=index.html>all</a> | <a href=ingredient-Gin.html>gin</a> | <a href=ingredient-Whiskey.html>whiskey</a> | <a href=ingredient-Rum.html>rum</a> | <a href=ingredient-Vodka.html>vodka</a> | <a href=ingredient-Champagne.html>champagne</a><br />"
 
 process :: Value -> IO ()
 process v = do

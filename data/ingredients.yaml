@@ -16,7 +16,7 @@
 - name: Dry Vermouth
 - name: Galliano
 - name: Gin
-# - name: Gin (Old Tom)
+- name: Old Tom Gin
 - name: Gomme syrup
 - name: Grand Marnier
 - name: Grapefruit juice
@@ -41,9 +41,11 @@
 - name: Simple syrup
 # - name: St. Germain
 - name: Tequila
+- name: Triple Sec
 - name: Vodka
 - name: Whisky
 - name: Yellow Chartreuse
 - name: Soda water
 - name: Egg white
 - name: Red wine syrup
+- name: Creme de Violette
