@@ -199,6 +199,7 @@ process v = do
                   , ("ingredient-Whiskey.html", "whiskey")
                   , ("ingredient-Rum.html", "rum")
                   , ("ingredient-Vodka.html", "vodka")
+                  , ("ingredient-Cognac.html", "cognac")
                   , ("ingredient-Champagne.html", "champagne")
                   ]
 

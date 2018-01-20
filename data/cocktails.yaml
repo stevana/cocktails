@@ -198,7 +198,7 @@
 - name: Blood and Sand
   timing: Pre-dinner
   ingredients:
-    - name: Whisky
+    - name: Scotch Whiskey
       amount: 4
       unit: cl
     - name: Sweet Vermouth
@@ -546,7 +546,7 @@
 - name: Porto flip
   timing: After dinner
   ingredients:
-    - name: Brandy
+    - name: Cognac
       amount: 1.5
       unit: cl
     - name: Port wine
@@ -560,7 +560,7 @@
 - name: Rusty nail
   timing: After dinner
   ingredients:
-    - name: Whisky
+    - name: Scotch Whiskey
       amount: 4.5
       unit: cl
     - name: Drambuie
@@ -649,7 +649,7 @@
 - name: Italian stinger
   timing: After dinner
   ingredients:
-    - name: Brandy
+    - name: Cognac
       amount: 3
       unit: cl
     - name: Galliano
@@ -736,7 +736,7 @@
 - name: B and B
   timing: After dinner
   ingredients:
-    - name: Brandy
+    - name: Cognac
       amount: 3
       unit: cl
     - name: Benedictine
@@ -786,7 +786,7 @@
 - name: Bobby Burns
   timing: After dinner
   ingredients:
-    - name: Whisky
+    - name: Scotch Whiskey
       amount: 4.5
       unit: cl
     - name: Sweet Vermouth

@@ -36,6 +36,7 @@
   params:
     - ingredient: Gin
     - ingredient: Whiskey
+    - ingredient: Cognac
     - ingredient: Rum
     - ingredient: Vodka
     - ingredient: Champagne
