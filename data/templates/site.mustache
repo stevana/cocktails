@@ -1,8 +1,15 @@
-{{>header}}
-{{>menu}}
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+{{#menu}}
+<a href={{link}}>{{text}}</a> |
+{{/menu}}
+<br/>
 {{#cocktails}}
 
-<h1>{{name}}</h1>
+<h3>{{name}}</h3>
 
 <i>({{timing}})</i>
 
@@ -15,4 +22,5 @@
 {{preparation}}.
 
 {{/cocktails}}
-{{>footer}}
+</body>
+</html>

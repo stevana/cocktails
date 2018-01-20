@@ -1,4 +1,3 @@
-{-# LANGUAGE LambdaCase          #-}
 {-# LANGUAGE OverloadedStrings   #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
@@ -11,16 +10,18 @@ module Lib
 
 import           Control.Concurrent         (threadDelay)
 import           Control.Exception          (SomeException, catch)
-import           Control.Lens               (to, traversed, (^.), (^..), (^?),
-                                             (^?!))
+import           Control.Lens               (at, folded, ifolded, re, review,
+                                             to, traversed, withIndex, (%~),
+                                             (&), (.~), (?~), (^.), (^..), (^?),
+                                             (^?!), _Just)
 import           Control.Monad
 import           Data.Aeson                 as Json
 import           Data.Aeson.Lens
-import           Data.Scientific
 import qualified Data.ByteString.Lazy.Char8 as BS
 import           Data.Char                  (isAlphaNum, isAscii)
 import qualified Data.HashMap.Lazy          as HM
 import           Data.List                  (zip4)
+import           Data.Scientific
 import           Data.Semigroup             ((<>))
 import           Data.Text                  (Text)
 import qualified Data.Text                  as T
@@ -88,40 +89,58 @@ waitForDbToBeReady = do
 
 ------------------------------------------------------------------------
 
+parseYaml :: FilePath -> IO Value
+parseYaml fp = do
+  eyaml <- decodeFileEither =<< getDataFileName fp
+  case eyaml of
+    Left  err  -> error (show err)
+    Right yaml -> return yaml
+
+mustache :: Value -> LT.Text -> LT.Text
+mustache v t = case compileMustacheText "pname" t of
+  Left  err      -> error (show err)
+  Right template -> case renderMustacheW template v of
+    ([],       t') -> t'
+    (warnings, _)  -> error (unlines (map displayMustacheWarning warnings))
+
 setupDb :: IO ()
 setupDb = do
-  let query :: Text
-      query = "MATCH(n) DETACH DELETE n;"
-  r <- post url (object [ "query"  .= query ])
 
-  createDirectoryIfMissing False distDir
+  createDirectoryIfMissing True distDir
 
-  ingredientsFile <- getDataFileName "data/ingredients.yaml"
-  decodeFileEither ingredientsFile >>= \case
-    Left  err  -> error (show err)
-    Right yaml -> do
-      let ingredientsCypher = ingredients yaml
-      -- T.putStrLn (T.unlines ingredientsCypher)
-      T.writeFile (distDir </> cypherFile) (T.unlines ingredientsCypher)
+  post url (object [ "query" .= String "MATCH(n) DETACH DELETE n;" ])
 
-  cocktailsFile <- getDataFileName "data/cocktails.yaml"
-  decodeFileEither cocktailsFile >>= \case
-    Left  err  -> error (show err)
-    Right yaml -> do
-      let cocktailsCypher = cocktails yaml
-      -- T.putStrLn (T.unlines cocktailsCypher)
-      T.appendFile (distDir </> cypherFile) (T.unlines cocktailsCypher)
-      let recipesCypher = recipes yaml
-      -- T.putStrLn (T.unlines recipesCypher)
-      T.appendFile (distDir </> cypherFile) (T.unlines recipesCypher)
+  LT.writeFile (distDir </> cypherFile) . ingredients =<<
+    parseYaml "data/ingredients.yaml"
+
+  yaml <- parseYaml "data/cocktails.yaml"
+
+  LT.appendFile (distDir </> cypherFile) (cocktails yaml)
+  T.appendFile (distDir </> cypherFile) (recipes yaml)
 
   cypher <- T.readFile (distDir </> cypherFile)
+  void (post url (object [ "query" .= cypher ]))
 
-  r <- post url (object [ "query" .= cypher ])
-  return ()
+recipes' :: Value -> LT.Text
+recipes' v = mustache (addAlphaNumField "name" v')
+  "{{#.}} \
+  \{{#ingredients}} \
+  \  CREATE ({{name-alpha-num}})-[:CONTAINS \
+  \    { amount: {{amount}} \
+  \    , unit:   {{unit}}   \
+  \    , index:  {{index}}  \
+  \    }) \
+  \  ->({{name}})\n \
+  \{{/ingredients}} \
+  \{{/.}}"
+  where
+  vs :: [(Int, Value)]
+  vs = v ^.. values . withIndex
+  v' :: Value
+  v' = Array $ V.fromList $ map (\(ix, o) -> o & _Object %~ (\u -> u & at "index" ?~ review _Integer (toInteger ix))) vs
 
-recipes :: Value -> [Text]
-recipes (Array vec) = concatMap go (V.toList vec)
+recipes :: Value -> Text
+recipes (Array vec) = T.unlines $ concatMap go (V.toList vec)
   where
   go :: Value -> [Text]
   go v = flip map (zip ingredients [0..]) $ \(ingredient, ix) ->
@@ -144,64 +163,65 @@ recipes (Array vec) = concatMap go (V.toList vec)
       , "}]->(", T.filter isAsciiAlphaNum iname, ")"
       ]
 
-cocktails :: Value -> [Text]
-cocktails v = flip map (zip3 names timings preparations) $ \(name, timing, preparation) ->
-  mconcat
-    [ "CREATE (", T.filter isAsciiAlphaNum name, ":Cocktail "
-    , "{ name: \"", name
-    , "\", timing: \"", timing
-    , "\", preparation: \"", preparation, "\"})"
-    ]
-  where
-  names        = v ^.. values . key "name"        . _String
-  timings      = v ^.. values . key "timing"      . _String
-  preparations = v ^.. values . key "preparation" . _String
+cocktails :: Value -> LT.Text
+cocktails v = mustache (addAlphaNumField "name" v)
+  "{{#.}} \
+  \  CREATE ({{name-alpha-num}}:Cocktail \
+  \    { name:        \"{{name}}\" \
+  \    , timing:      \"{{timing}}\" \
+  \    , preparation: \"{{preparation}}\" \
+  \    })\n \
+  \{{/.}}"
 
-ingredients :: Value -> [Text]
-ingredients v = v ^.. values . key "name" . _String . to create
-  where
-  create :: Text -> Text
-  create name = mconcat
-    [ "CREATE (", T.filter isAsciiAlphaNum name
-    , ":Ingredient {name: \"", name, "\"})"
-    ]
+addAlphaNumField :: Text -> Value -> Value
+addAlphaNumField field v = v & values . _Object %~
+  (\o -> o & at (field <> "-alpha-num") .~
+    (o ^. at field & _Just . _String %~ T.filter isAsciiAlphaNum))
+
+ingredients :: Value -> LT.Text
+ingredients v = mustache (addAlphaNumField "name" v)
+  "{{#.}} \
+  \  CREATE ({{name-alpha-num}}:Ingredient \
+  \    { name: \"{{name}}\" \
+  \    }) \
+  \{{/.}}"
 
 isAsciiAlphaNum :: Char -> Bool
 isAsciiAlphaNum c = isAscii c && isAlphaNum c
 
 generateContent :: IO ()
-generateContent = do
-  queriesFile <- getDataFileName "data/queries.yaml"
-  decodeFileEither queriesFile >>= \case
-    Left  err  -> error (show err)
-    Right yaml -> process yaml
-
-makeMenu :: Value -> Template
-makeMenu
-  = either (error . show) id
-  . compileMustacheText "menu"
-  . go
-  where
-  go _ =
-    "<a href=index.html>all</a> | <a href=ingredient-Gin.html>gin</a> | <a href=ingredient-Whiskey.html>whiskey</a> | <a href=ingredient-Rum.html>rum</a> | <a href=ingredient-Vodka.html>vodka</a> | <a href=ingredient-Champagne.html>champagne</a><br />"
+generateContent = process =<< parseYaml "data/queries.yaml"
 
 process :: Value -> IO ()
 process v = do
-  let menuTemplate = makeMenu v
+  let menuPairs = [ ("index.html", "all")
+                  , ("ingredient-Gin.html", "gin")
+                  , ("ingredient-Whiskey.html", "whiskey")
+                  , ("ingredient-Rum.html", "rum")
+                  , ("ingredient-Vodka.html", "vodka")
+                  , ("ingredient-Champagne.html", "champagne")
+                  ]
+
+  let menuJson = object
+                   ["menu" .= map (\(link, text) ->
+                         object [ "link" .= String link
+                                , "text" .= String text]) menuPairs]
 
   forM_ (zip4 names queries paramss templates) $ \(name, query, params, template) -> do
     templateDir <- getDataFileName "data/templates"
-    template' <- (<> menuTemplate) <$> compileMustacheDir (PName template) templateDir
+    template' <- compileMustacheDir (PName template) templateDir
 
     if V.null params
     then do
-      r <- post url (object [ "query" .= query ])
+      r <- post url (object [ "query"  .= query
+                            , "params" .= object []
+                            ])
       let json = r ^?! responseBody . key "data" . values . values
           bs   = Json.encode json
           fp   = distDir </> T.unpack name
       -- BS.putStrLn bs
       BS.writeFile (fp <.> ".json") bs
-      LT.writeFile (fp <.> "html") (renderMustache template' json)
+      LT.writeFile (fp <.> "html") (renderMustache template' (json `mergeValue` menuJson))
     else do
       forM_ params $ \param -> do
         r <- post url (object
@@ -216,10 +236,14 @@ process v = do
             fp      = distDir </> T.unpack name <> "-" <> vstr
         -- BS.putStrLn bs
         BS.writeFile (fp <.> "json") bs
-        LT.writeFile (fp <.> "html") (renderMustache template' json)
+        let json' = json `mergeValue` menuJson
+        LT.writeFile (fp <.> "html") (renderMustache template' json')
 
   where
   names     = v ^.. values . key "name"     . _String
   queries   = v ^.. values . key "query"    . _String
   paramss   = v ^.. values . key "params"   . _Array
   templates = v ^.. values . key "template" . _String
+
+mergeValue :: Value -> Value -> Value
+mergeValue (Object hm1) (Object hm2) = Object (hm1 <> hm2)

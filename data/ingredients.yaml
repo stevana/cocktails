@@ -4,6 +4,7 @@
 - name: Apricot Brandy
 - name: Benedictine
 - name: Bourbon Whiskey
+- name: Brandy
 - name: Cachaca
 - name: Cynar
 - name: Calvados
@@ -32,7 +33,7 @@
 - name: Orange bitters
 - name: Orange juice
 - name: Peach bitters
-# - name: "Peychaud's bitters"
+- name: "Peychaud's bitters"
 - name: Pineapple juice
 - name: Port wine
 - name: Raspberry syrup
@@ -48,5 +49,6 @@
 - name: Yellow Chartreuse
 - name: Soda water
 - name: Egg white
+- name: Egg yolk
 - name: Red wine syrup
 - name: Creme de Violette

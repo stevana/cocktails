@@ -356,3 +356,264 @@
       amount: 1
       unit: dash
   preparation: Shaken
+
+- name: Clover Club
+  timing: All day
+  ingredients:
+    - name: Gin
+      amount: 4.5
+      unit: cl
+    - name: Raspberry syrup
+      amount: 1.5
+      unit: cl
+    - name: Lemon juice
+      amount: 1.5
+      unit: cl
+    - name: Egg white
+      amount: 1
+      unit: dash
+  preparation: Shaken
+
+- name: Mary Pickford
+  timing: All day
+  ingredients:
+    - name: Light Rum
+      amount: 6
+      unit: cl
+    - name: Maraschino
+      amount: 1
+      unit: cl
+    - name: Pineapple juice
+      amount: 6
+      unit: cl
+    - name: Grenadine
+      amount: 1
+      unit: cl
+  preparation: Shaken
+
+- name: Monkey Gland
+  timing: All day
+  ingredients:
+    - name: Gin
+      amount: 5
+      unit: cl
+    - name: Orange juice
+      amount: 3
+      unit: cl
+    - name: Absinth
+      amount: 2
+      unit: drops
+    - name: Grenadine
+      amount: 2
+      unit: drops
+  preparation: Shaken
+
+- name: Paradise
+  timing: All day
+  ingredients:
+    - name: Gin
+      amount: 3.5
+      unit: cl
+    - name: Apricot Brandy
+      amount: 2
+      unit: cl
+    - name: Orange juice
+      amount: 1.5
+      unit: cl
+  preparation: Shaken
+
+- name: Screwdriver
+  timing: All day
+  ingredients:
+    - name: Vodka
+      amount: 5
+      unit: cl
+    - name: Orange juice
+      amount: 10
+      unit: cl
+  preparation: Stirred
+
+- name: Salty dog
+  timing: All day
+  ingredients:
+    - name: Gin
+      amount: 5
+      unit: cl
+    - name: Grapefruit juice
+      amount: 10
+      unit: cl
+  preparation: Shaken
+
+- name: Sidecar
+  timing: All day
+  ingredients:
+    - name: Cognac
+      amount: 5
+      unit: cl
+    - name: Triple Sec
+      amount: 2
+      unit: cl
+    - name: Lemon juice
+      amount: 2
+      unit: cl
+  preparation: Shaken
+
+- name: Tuxedo
+  timing: All day
+  ingredients:
+    - name: Gin
+      amount: 3
+      unit: cl
+    - name: Dry Vermouth
+      amount: 3
+      unit: cl
+    - name: Maraschino
+      amount: 0.5
+      unit: bar spoon
+    - name: Absinthe
+      amount: 0.25
+      unit: bar spoon
+    - name: Orange bitters
+      amount: 3
+      unit: dashes
+  preparation: Stirred
+
+- name: Blinker
+  timing: All day
+  ingredients:
+    - name: Rye Whiskey
+      amount: 6
+      unit: cl
+    - name: Grapefruit juice
+      amount: 3
+      unit: cl
+    - name: Raspberry syrup
+      amount: 1.5
+      unit: cl
+  preparation: Shaken
+
+- name: Gin fizz
+  timing: Longdrink
+  ingredients:
+    - name: Gin
+      amount: 4.5
+      unit: cl
+    - name: Lemon juice
+      amount: 3
+      unit: cl
+    - name: Simple syrup
+      amount: 1
+      unit: cl
+    - name: Soda water
+      amount: 8
+      unit: cl
+  preparation: Shaken
+
+- name: John Collins
+  timing: Longdrink
+  ingredients:
+    - name: Gin
+      amount: 4.5
+      unit: cl
+    - name: Lemon juice
+      amount: 3
+      unit: cl
+    - name: Simple syrup
+      amount: 1.5
+      unit: cl
+    - name: Soda water
+      amount: 6
+      unit: cl
+  preparation: Stirred
+
+- name: Tom Collins
+  timing: Longdrink
+  ingredients:
+    - name: Old Tom Gin
+      amount: 4.5
+      unit: cl
+    - name: Lemon juice
+      amount: 3
+      unit: cl
+    - name: Simple syrup
+      amount: 1.5
+      unit: cl
+    - name: Soda water
+      amount: 6
+      unit: cl
+  preparation: Stirred
+
+- name: Porto flip
+  timing: After dinner
+  ingredients:
+    - name: Brandy
+      amount: 1.5
+      unit: cl
+    - name: Port wine
+      amount: 4.5
+      unit: cl
+    - name: Egg yolk
+      amount: 1
+      unit: cl
+  preparation: Shaken
+
+- name: Rusty nail
+  timing: After dinner
+  ingredients:
+    - name: Whisky
+      amount: 4.5
+      unit: cl
+    - name: Drambuie
+      amount: 2.5
+      unit: cl
+  preparation: Stirred
+
+- name: Sazerac
+  timing: After dinner
+  ingredients:
+    - name: Cognac
+      amount: 5
+      unit: cl
+    - name: Absinthe
+      amount: 1
+      unit: cl
+    - name: Simple syrup
+      amount: 1
+      unit: cl
+    - name: "Peychaud's bitters"
+      amount: 2
+      unit: dashes
+  preparation: Stirred
+
+- name: French connection
+  timing: After dinner
+  ingredients:
+    - name: Cognac
+      amount: 3
+      unit: cl
+    - name: Amaretto
+      amount: 3
+      unit: cl
+  preparation: Stirred
+
+- name: Godfather
+  timing: After dinner
+  ingredients:
+    - name: Bourbon Whiskey
+      amount: 3
+      unit: cl
+    - name: Amaretto
+      amount: 3
+      unit: cl
+  preparation: Stirred
+
+- name: Godmother
+  timing: After dinner
+  ingredients:
+    - name: Vodka
+      amount: 3
+      unit: cl
+    - name: Amaretto
+      amount: 3
+      unit: cl
+  preparation: Stirred
