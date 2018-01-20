@@ -617,3 +617,17 @@
       amount: 3
       unit: cl
   preparation: Stirred
+  
+- name: Vesper
+  timing: Pre-dinner
+  ingredients:
+    - name: Gin
+      amount: 6
+      unit: cl
+    - name: Vodka
+      amount: 1.5
+      unit: cl
+    - name: Lillet Blanc
+      amount: 0.75
+      unit: cl
+  preparation: Shaken
