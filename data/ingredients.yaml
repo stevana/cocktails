@@ -24,14 +24,17 @@
 - name: Grapefruit juice
 - name: Green Chartreuse
 - name: Grenadine
+- name: Honey syrup
 - name: Kahlua
 - name: Lemon juice
 - name: Lemon zest
 - name: Light Rum
 - name: Lime juice
 - name: Maraschino
+- name: Maple syrup
 - name: Orange bitters
 - name: Orange juice
+- name: Orgeat
 - name: Peach bitters
 - name: "Peychaud's bitters"
 - name: Pineapple juice
@@ -53,3 +56,5 @@
 - name: Red wine syrup
 - name: Creme de Violette
 - name: Lillet Blanc
+- name: Kummel Korn
+- name: Drambuie

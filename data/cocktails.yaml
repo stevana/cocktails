@@ -631,3 +631,214 @@
       amount: 0.75
       unit: cl
   preparation: Shaken
+
+- name: Harvey Wallbanger
+  timing: All day
+  ingredients:
+    - name: Vodka
+      amount: 4.5
+      unit: cl
+    - name: Galliano
+      amount: 1.5
+      unit: cl
+    - name: Orange juice
+      amount: 9
+      unit: cl
+  preparation: Shaken
+
+- name: Italian stinger
+  timing: After dinner
+  ingredients:
+    - name: Brandy
+      amount: 3
+      unit: cl
+    - name: Galliano
+      amount: 3
+      unit: cl
+  preparation: Stirred
+
+- name: Army and Navy
+  timing: Pre-dinner
+  ingredients:
+    - name: Gin
+      amount: 6
+      unit: cl
+    - name: Lemon juice
+      amount: 2
+      unit: cl
+    - name: Orgeat
+      amount: 2
+      unit: cl
+  preparation: Shaken
+
+- name: "Bee's Knees"
+  timing: Pre-dinner
+  ingredients:
+    - name: Gin
+      amount: 6
+      unit: cl
+    - name: Lemon juice
+      amount: 2
+      unit: cl
+    - name: Honey syrup
+      amount: 2
+      unit: cl
+  preparation: Shaken
+
+- name: Bijou
+  timing: Pre-dinner
+  ingredients:
+    - name: Gin
+      amount: 3
+      unit: cl
+    - name: Green Chartreuse
+      amount: 3
+      unit: cl
+    - name: Sweet Vermouth
+      amount: 3
+      unit: cl
+    - name: Orange bitters
+      amount: 1
+      unit: dash
+  preparation: Stirred
+
+- name: Gimlet
+  timing: Pre-dinner
+  ingredients:
+    - name: Gin
+      amount: 5
+      unit: cl
+    - name: Lime juice
+      amount: 1
+      unit: cl
+    - name: Simple syrup
+      amount: 1
+      unit: cl
+  preparation: Shaken
+
+- name: Martinez
+  timing: Pre-dinner
+  ingredients:
+    - name: Gin
+      amount: 4
+      unit: cl
+    - name: Sweet Vermouth
+      amount: 4
+      unit: cl
+    - name: Maraschino
+      amount: 1
+      unit: tsp
+    - name: Angostura bitters
+      amount: 1
+      unit: dash
+  preparation: Stirred
+
+- name: B and B
+  timing: After dinner
+  ingredients:
+    - name: Brandy
+      amount: 3
+      unit: cl
+    - name: Benedictine
+      amount: 3
+      unit: cl
+  preparation: Stirred
+
+- name: Milk and honey
+  timing: After dinner
+  ingredients:
+    - name: Benedictine
+      amount: 3
+      unit: cl
+    - name: Milk
+      amount: 3
+      unit: cl
+  preparation: Stirred
+
+- name: Derby cocktail
+  timing: After dinner
+  ingredients:
+    - name: Bourbon Whiskey
+      amount: 6
+      unit: cl
+    - name: Benedictine
+      amount: 0.75
+      unit: cl
+    - name: Angustura
+      amount: 1
+      unit: dash
+  preparation: Stirred
+
+- name: Gypsy queen
+  timing: After dinner
+  ingredients:
+    - name: Vodka
+      amount: 6
+      unit: cl
+    - name: Benedictine
+      amount: 3
+      unit: cl
+    - name: Angustura
+      amount: 2
+      unit: dashes
+  preparation: Stirred
+
+- name: Bobby Burns
+  timing: After dinner
+  ingredients:
+    - name: Whisky
+      amount: 4.5
+      unit: cl
+    - name: Sweet Vermouth
+      amount: 4.5
+      unit: cl
+    - name: Benedictine
+      amount: 2.3
+      unit: cl
+  preparation: Stirred
+
+- name: Vieux carre
+  timing: After dinner
+  ingredients:
+    - name: Cognac
+      amount: 2
+      unit: cl
+    - name: Rye Whiskey
+      amount: 2
+      unit: cl
+    - name: Sweet Vermouth
+      amount: 2
+      unit: cl
+    - name: Benedictine
+      amount: 2
+      unit: tsp
+  preparation: Stirred
+
+- name: Chrysanthemum
+  timing: All day
+  ingredients:
+    - name: Dry Vermouth
+      amount: 6
+      unit: cl
+    - name: Benedictine
+      amount: 3
+      unit: cl
+    - name: Absinthe
+      amount: 0.75
+      unit: cl
+  preparation: Stirred
+
+- name: Shaken drake
+  timing: All day
+  ingredients:
+    - name: Kummel Korn
+      amount: 6
+      unit: cl
+    - name: Grapefruit juice
+      amount: 6
+      unit: cl
+    - name: Maple syrup
+      amount: 1
+      unit: bar spoon
+  preparation: Shaken
+  source: Liquid Intelligence
