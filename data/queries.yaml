@@ -5,33 +5,33 @@
     ORDER BY r.index
     WITH { name:        c.name
          , timing:      c.timing
-         , ingredients: collect({ name:   i.name
-                                , amount: r.amount
-                                , unit:   r.unit
+         , ingredients: collect({ ingredient: i.ingredient
+                                , amount:     r.amount
+                                , unit:       r.unit
                                 })
          , preparation: c.preparation
          } AS cocktail
-    ORDER BY cocktail.name
+    ORDER BY cocktail.timing DESC, cocktail.name
     RETURN {cocktails: collect(cocktail)};
   params: []
   template: site
 - name: ingredient
   query: >-
     MATCH (i:Ingredient)<--(cc:Cocktail)
-    WHERE i.name CONTAINS {ingredient}
+    WHERE i.ingredient CONTAINS {ingredient}
     WITH cc AS c
     MATCH (c)-[r]->(i)
     WITH c, r, i
     ORDER BY r.index
     WITH { name:        c.name
          , timing:      c.timing
-         , ingredients: collect({ name:   i.name
-                                , amount: r.amount
-                                , unit:   r.unit
+         , ingredients: collect({ ingredient: i.ingredient
+                                , amount:     r.amount
+                                , unit:       r.unit
                                 })
          , preparation: c.preparation
          } AS cocktail
-    ORDER BY cocktail.name
+    ORDER BY cocktail.timing DESC, cocktail.name
     RETURN {cocktails: collect(cocktail)};
   params:
     - ingredient: Gin
@@ -40,4 +40,27 @@
     - ingredient: Rum
     - ingredient: Vodka
     - ingredient: Champagne
+  template: site
+
+- name: timing
+  query: >-
+    MATCH (c:Cocktail)-[r:CONTAINS]->(i:Ingredient)
+    WHERE c.timing = {timing}
+    WITH c, r, i
+    ORDER BY r.index
+    WITH { name:        c.name
+         , timing:      c.timing
+         , ingredients: collect({ ingredient: i.ingredient
+                                , amount:     r.amount
+                                , unit:       r.unit
+                                })
+         , preparation: c.preparation
+         } AS cocktail
+    ORDER BY cocktail.timing DESC, cocktail.name
+    RETURN {cocktails: collect(cocktail)};
+  params:
+    - timing: Pre-dinner
+    - timing: Longdrink
+    - timing: "All day"
+    - timing: "After dinner"
   template: site

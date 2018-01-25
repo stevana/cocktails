@@ -1,13 +1,13 @@
 - name: Americano
   timing: Pre-dinner
   ingredients:
-    - name: Campari
+    - ingredient: Campari
       amount: 3
       unit: cl
-    - name: Sweet Vermouth
+    - ingredient: Sweet Vermouth
       amount: 3
       unit: cl
-    - name: Soda water
+    - ingredient: Soda water
       amount: 1
       unit: splash
   preparation: Stirred
@@ -15,13 +15,13 @@
 - name: Daiquiri
   timing: Pre-dinner
   ingredients:
-    - name: Light Rum
+    - ingredient: Light Rum
       amount: 4.5
       unit: cl
-    - name: Lime juice
+    - ingredient: Lime juice
       amount: 2.5
       unit: cl
-    - name: Simple syrup
+    - ingredient: Simple syrup
       amount: 1.5
       unit: cl
   preparation: Shaken
@@ -29,16 +29,16 @@
 - name: Hemingway Daiquiri
   timing: Pre-dinner
   ingredients:
-    - name: Light Rum
+    - ingredient: Light Rum
       amount: 6
       unit: cl
-    - name: Lime juice
+    - ingredient: Lime juice
       amount: 2.5
       unit: cl
-    - name: Maraschino
+    - ingredient: Maraschino
       amount: 1.5
       unit: cl
-    - name: Grapefruit juice
+    - ingredient: Grapefruit juice
       amount: 1.5
       unit: cl
   preparation: Shaken
@@ -46,16 +46,16 @@
 - name: Whiskey Sour
   timing: Pre-dinner
   ingredients:
-    - name: Bourbon Whiskey
+    - ingredient: Bourbon Whiskey
       amount: 4.5
       unit: cl
-    - name: Lemon juice
+    - ingredient: Lemon juice
       amount: 3
       unit: cl
-    - name: Simple syrup
+    - ingredient: Simple syrup
       amount: 1.5
       unit: cl
-    - name: Egg white
+    - ingredient: Egg white
       amount: 1
       unit: dash
   preparation: Shaken
@@ -63,16 +63,16 @@
 - name: Napa Vally Sour
   timing: Pre-dinner
   ingredients:
-    - name: Rye Whiskey
+    - ingredient: Rye Whiskey
       amount: 6
       unit: cl
-    - name: Lemon juice
+    - ingredient: Lemon juice
       amount: 2
       unit: cl
-    - name: Red wine syrup
+    - ingredient: Red wine syrup
       amount: 2
       unit: cl
-    - name: Egg white
+    - ingredient: Egg white
       amount: 1
       unit: dash
   preparation: Shaken
@@ -80,13 +80,13 @@
 - name: Grand Marnier Sour
   timing: Pre-dinner
   ingredients:
-    - name: Grand Marnier
+    - ingredient: Grand Marnier
       amount: 4
       unit: cl
-    - name: Lemon juice
+    - ingredient: Lemon juice
       amount: 3
       unit: cl
-    - name: Egg white
+    - ingredient: Egg white
       amount: 1
       unit: dash
   preparation: Shaken
@@ -94,13 +94,13 @@
 - name: Bacardi
   timing: Pre-dinner
   ingredients:
-    - name: Light Rum
+    - ingredient: Light Rum
       amount: 4.5
       unit: cl
-    - name: Lemon juice
+    - ingredient: Lemon juice
       amount: 2
       unit: cl
-    - name: Grenadine
+    - ingredient: Grenadine
       amount: 1
       unit: cl
   preparation: Shaken
@@ -108,10 +108,10 @@
 - name: Dry Martini
   timing: Pre-dinner
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 6
       unit: cl
-    - name: Dry Vermouth
+    - ingredient: Dry Vermouth
       amount: 1
       unit: cl
   preparation: Stirred
@@ -119,13 +119,13 @@
 - name: Manhattan
   timing: Pre-dinner
   ingredients:
-    - name: RyeWhiskey
+    - ingredient: RyeWhiskey
       amount: 5
       unit: cl
-    - name: Sweet Vermouth
+    - ingredient: Sweet Vermouth
       amount: 2
       unit: cl
-    - name: Angostura bitters
+    - ingredient: Angostura bitters
       amount: 1
       unit: dash
   preparation: Stirred
@@ -136,13 +136,13 @@
 - name: Negroni
   timing: Pre-dinner
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 3
       unit: cl
-    - name: Sweet Vermouth
+    - ingredient: Sweet Vermouth
       amount: 3
       unit: cl
-    - name: Campari
+    - ingredient: Campari
       amount: 3
       unit: cl
   preparation: Stirred
@@ -153,13 +153,13 @@
 - name: Boulevardier
   timing: Pre-dinner
   ingredients:
-    - name: Bourbon Whiskey
+    - ingredient: Bourbon Whiskey
       amount: 3
       unit: cl
-    - name: Sweet Vermouth
+    - ingredient: Sweet Vermouth
       amount: 3
       unit: cl
-    - name: Campari
+    - ingredient: Campari
       amount: 3
       unit: cl
   preparation: Stirred
@@ -170,13 +170,13 @@
 - name: Old Pal
   timing: Pre-dinner
   ingredients:
-    - name: Rye Whiskey
+    - ingredient: Rye Whiskey
       amount: 3
       unit: cl
-    - name: Dry Vermouth
+    - ingredient: Dry Vermouth
       amount: 3
       unit: cl
-    - name: Campari
+    - ingredient: Campari
       amount: 3
       unit: cl
   preparation: Stirred
@@ -184,13 +184,13 @@
 - name: Old Fashioned
   timing: Pre-dinner
   ingredients:
-    - name: Rye Whiskey
+    - ingredient: Rye Whiskey
       amount: 6
       unit: cl
-    - name: Simple syrup
+    - ingredient: Simple syrup
       amount: 1
       unit: cl
-    - name: Angostura bitters
+    - ingredient: Angostura bitters
       amount: 2
       unit: dashes
   preparation: Stirred
@@ -198,16 +198,16 @@
 - name: Blood and Sand
   timing: Pre-dinner
   ingredients:
-    - name: Scotch Whiskey
+    - ingredient: Scotch Whiskey
       amount: 4
       unit: cl
-    - name: Sweet Vermouth
+    - ingredient: Sweet Vermouth
       amount: 2
       unit: cl
-    - name: Cherry Heering
+    - ingredient: Cherry Heering
       amount: 2
       unit: cl
-    - name: Orange juice
+    - ingredient: Orange juice
       amount: 2
       unit: cl
   preparation: Stirred
@@ -215,13 +215,13 @@
 - name: Cynar Toronto
   timing: Pre-dinner
   ingredients:
-    - name: Rye Whiskey
+    - ingredient: Rye Whiskey
       amount: 6
       unit: cl
-    - name: Cynar
+    - ingredient: Cynar
       amount: 2
       unit: cl
-    - name: Angostura bitters
+    - ingredient: Angostura bitters
       amount: 4
       unit: dashes
   preparation: Stirred
@@ -232,13 +232,13 @@
 - name: Bitter Mimosa
   timing: All day
   ingredients:
-    - name: Champagne
+    - ingredient: Champagne
       amount: 9
       unit: cl
-    - name: Cynar
+    - ingredient: Cynar
       amount: 2
       unit: cl
-    - name: Grapefruit juice
+    - ingredient: Grapefruit juice
       amount: 9
       unit: cl
   preparation: Stirred
@@ -246,16 +246,16 @@
 - name: Boulevard
   timing: Pre-dinner
   ingredients:
-    - name: Bourbon Whiskey
+    - ingredient: Bourbon Whiskey
       amount: 7.5
       unit: cl
-    - name: Grand Marnier
+    - ingredient: Grand Marnier
       amount: 1.5
       unit: cl
-    - name: Dry Vermouth
+    - ingredient: Dry Vermouth
       amount: 3
       unit: cl
-    - name: Orange bitters
+    - ingredient: Orange bitters
       amount: 2
       unit: dashes
   preparation: Stirred
@@ -263,13 +263,13 @@
 - name: Angel face
   timing: All day
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 3
       unit: cl
-    - name: Apricot Brandy
+    - ingredient: Apricot Brandy
       amount: 3
       unit: cl
-    - name: Calvados
+    - ingredient: Calvados
       amount: 3
       unit: cl
   preparation: Shaken
@@ -277,16 +277,16 @@
 - name: Aviation
   timing: All day
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 4.5
       unit: cl
-    - name: Lemon juice
+    - ingredient: Lemon juice
       amount: 2.2
       unit: cl
-    - name: Maraschino
+    - ingredient: Maraschino
       amount: 1
       unit: tsp
-    - name: Creme de Violette
+    - ingredient: Creme de Violette
       amount: 1
       unit: tsp
   preparation: Shaken
@@ -295,13 +295,13 @@
 - name: White lady
   timing: All day
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 4
       unit: cl
-    - name: Triple Sec
+    - ingredient: Triple Sec
       amount: 3
       unit: cl
-    - name: Lemon juice
+    - ingredient: Lemon juice
       amount: 2
       unit: cl
   preparation: Shaken
@@ -309,16 +309,16 @@
 - name: Between the sheets
   timing: All day
   ingredients:
-    - name: Light Rum
+    - ingredient: Light Rum
       amount: 3
       unit: cl
-    - name: Cognac
+    - ingredient: Cognac
       amount: 3
       unit: cl
-    - name: Triple Sec
+    - ingredient: Triple Sec
       amount: 3
       unit: cl
-    - name: Lemon juice
+    - ingredient: Lemon juice
       amount: 2
       unit: cl
   preparation: Shaken
@@ -326,16 +326,16 @@
 - name: Cosmopolitan
   timing: All day
   ingredients:
-    - name: Vodka
+    - ingredient: Vodka
       amount: 4
       unit: cl
-    - name: Triple Sec
+    - ingredient: Triple Sec
       amount: 1.5
       unit: cl
-    - name: Lime juice
+    - ingredient: Lime juice
       amount: 1.5
       unit: cl
-    - name: Cranberry juice
+    - ingredient: Cranberry juice
       amount: 3
       unit: cl
   preparation: Shaken
@@ -343,16 +343,16 @@
 - name: Casino
   timing: All day
   ingredients:
-    - name: Old Tom Gin
+    - ingredient: Old Tom Gin
       amount: 4
       unit: cl
-    - name: Maraschino
+    - ingredient: Maraschino
       amount: 1
       unit: cl
-    - name: Lemon juice
+    - ingredient: Lemon juice
       amount: 1
       unit: cl
-    - name: Orange bitters
+    - ingredient: Orange bitters
       amount: 1
       unit: dash
   preparation: Shaken
@@ -360,16 +360,16 @@
 - name: Clover Club
   timing: All day
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 4.5
       unit: cl
-    - name: Raspberry syrup
+    - ingredient: Raspberry syrup
       amount: 1.5
       unit: cl
-    - name: Lemon juice
+    - ingredient: Lemon juice
       amount: 1.5
       unit: cl
-    - name: Egg white
+    - ingredient: Egg white
       amount: 1
       unit: dash
   preparation: Shaken
@@ -377,16 +377,16 @@
 - name: Mary Pickford
   timing: All day
   ingredients:
-    - name: Light Rum
+    - ingredient: Light Rum
       amount: 6
       unit: cl
-    - name: Maraschino
+    - ingredient: Maraschino
       amount: 1
       unit: cl
-    - name: Pineapple juice
+    - ingredient: Pineapple juice
       amount: 6
       unit: cl
-    - name: Grenadine
+    - ingredient: Grenadine
       amount: 1
       unit: cl
   preparation: Shaken
@@ -394,16 +394,16 @@
 - name: Monkey Gland
   timing: All day
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 5
       unit: cl
-    - name: Orange juice
+    - ingredient: Orange juice
       amount: 3
       unit: cl
-    - name: Absinth
+    - ingredient: Absinth
       amount: 2
       unit: drops
-    - name: Grenadine
+    - ingredient: Grenadine
       amount: 2
       unit: drops
   preparation: Shaken
@@ -411,13 +411,13 @@
 - name: Paradise
   timing: All day
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 3.5
       unit: cl
-    - name: Apricot Brandy
+    - ingredient: Apricot Brandy
       amount: 2
       unit: cl
-    - name: Orange juice
+    - ingredient: Orange juice
       amount: 1.5
       unit: cl
   preparation: Shaken
@@ -425,10 +425,10 @@
 - name: Screwdriver
   timing: All day
   ingredients:
-    - name: Vodka
+    - ingredient: Vodka
       amount: 5
       unit: cl
-    - name: Orange juice
+    - ingredient: Orange juice
       amount: 10
       unit: cl
   preparation: Stirred
@@ -436,10 +436,10 @@
 - name: Salty dog
   timing: All day
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 5
       unit: cl
-    - name: Grapefruit juice
+    - ingredient: Grapefruit juice
       amount: 10
       unit: cl
   preparation: Shaken
@@ -447,13 +447,13 @@
 - name: Sidecar
   timing: All day
   ingredients:
-    - name: Cognac
+    - ingredient: Cognac
       amount: 5
       unit: cl
-    - name: Triple Sec
+    - ingredient: Triple Sec
       amount: 2
       unit: cl
-    - name: Lemon juice
+    - ingredient: Lemon juice
       amount: 2
       unit: cl
   preparation: Shaken
@@ -461,19 +461,19 @@
 - name: Tuxedo
   timing: All day
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 3
       unit: cl
-    - name: Dry Vermouth
+    - ingredient: Dry Vermouth
       amount: 3
       unit: cl
-    - name: Maraschino
+    - ingredient: Maraschino
       amount: 0.5
       unit: bar spoon
-    - name: Absinthe
+    - ingredient: Absinthe
       amount: 0.25
       unit: bar spoon
-    - name: Orange bitters
+    - ingredient: Orange bitters
       amount: 3
       unit: dashes
   preparation: Stirred
@@ -481,13 +481,13 @@
 - name: Blinker
   timing: All day
   ingredients:
-    - name: Rye Whiskey
+    - ingredient: Rye Whiskey
       amount: 6
       unit: cl
-    - name: Grapefruit juice
+    - ingredient: Grapefruit juice
       amount: 3
       unit: cl
-    - name: Raspberry syrup
+    - ingredient: Raspberry syrup
       amount: 1.5
       unit: cl
   preparation: Shaken
@@ -495,16 +495,16 @@
 - name: Gin fizz
   timing: Longdrink
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 4.5
       unit: cl
-    - name: Lemon juice
+    - ingredient: Lemon juice
       amount: 3
       unit: cl
-    - name: Simple syrup
+    - ingredient: Simple syrup
       amount: 1
       unit: cl
-    - name: Soda water
+    - ingredient: Soda water
       amount: 8
       unit: cl
   preparation: Shaken
@@ -512,16 +512,16 @@
 - name: John Collins
   timing: Longdrink
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 4.5
       unit: cl
-    - name: Lemon juice
+    - ingredient: Lemon juice
       amount: 3
       unit: cl
-    - name: Simple syrup
+    - ingredient: Simple syrup
       amount: 1.5
       unit: cl
-    - name: Soda water
+    - ingredient: Soda water
       amount: 6
       unit: cl
   preparation: Stirred
@@ -529,16 +529,16 @@
 - name: Tom Collins
   timing: Longdrink
   ingredients:
-    - name: Old Tom Gin
+    - ingredient: Old Tom Gin
       amount: 4.5
       unit: cl
-    - name: Lemon juice
+    - ingredient: Lemon juice
       amount: 3
       unit: cl
-    - name: Simple syrup
+    - ingredient: Simple syrup
       amount: 1.5
       unit: cl
-    - name: Soda water
+    - ingredient: Soda water
       amount: 6
       unit: cl
   preparation: Stirred
@@ -546,13 +546,13 @@
 - name: Porto flip
   timing: After dinner
   ingredients:
-    - name: Cognac
+    - ingredient: Cognac
       amount: 1.5
       unit: cl
-    - name: Port wine
+    - ingredient: Port wine
       amount: 4.5
       unit: cl
-    - name: Egg yolk
+    - ingredient: Egg yolk
       amount: 1
       unit: cl
   preparation: Shaken
@@ -560,10 +560,10 @@
 - name: Rusty nail
   timing: After dinner
   ingredients:
-    - name: Scotch Whiskey
+    - ingredient: Scotch Whiskey
       amount: 4.5
       unit: cl
-    - name: Drambuie
+    - ingredient: Drambuie
       amount: 2.5
       unit: cl
   preparation: Stirred
@@ -571,16 +571,16 @@
 - name: Sazerac
   timing: After dinner
   ingredients:
-    - name: Cognac
+    - ingredient: Cognac
       amount: 5
       unit: cl
-    - name: Absinthe
+    - ingredient: Absinthe
       amount: 1
       unit: cl
-    - name: Simple syrup
+    - ingredient: Simple syrup
       amount: 1
       unit: cl
-    - name: "Peychaud's bitters"
+    - ingredient: "Peychaud's bitters"
       amount: 2
       unit: dashes
   preparation: Stirred
@@ -588,10 +588,10 @@
 - name: French connection
   timing: After dinner
   ingredients:
-    - name: Cognac
+    - ingredient: Cognac
       amount: 3
       unit: cl
-    - name: Amaretto
+    - ingredient: Amaretto
       amount: 3
       unit: cl
   preparation: Stirred
@@ -599,10 +599,10 @@
 - name: Godfather
   timing: After dinner
   ingredients:
-    - name: Bourbon Whiskey
+    - ingredient: Bourbon Whiskey
       amount: 3
       unit: cl
-    - name: Amaretto
+    - ingredient: Amaretto
       amount: 3
       unit: cl
   preparation: Stirred
@@ -610,10 +610,10 @@
 - name: Godmother
   timing: After dinner
   ingredients:
-    - name: Vodka
+    - ingredient: Vodka
       amount: 3
       unit: cl
-    - name: Amaretto
+    - ingredient: Amaretto
       amount: 3
       unit: cl
   preparation: Stirred
@@ -621,13 +621,13 @@
 - name: Vesper
   timing: Pre-dinner
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 6
       unit: cl
-    - name: Vodka
+    - ingredient: Vodka
       amount: 1.5
       unit: cl
-    - name: Lillet Blanc
+    - ingredient: Lillet Blanc
       amount: 0.75
       unit: cl
   preparation: Shaken
@@ -635,13 +635,13 @@
 - name: Harvey Wallbanger
   timing: All day
   ingredients:
-    - name: Vodka
+    - ingredient: Vodka
       amount: 4.5
       unit: cl
-    - name: Galliano
+    - ingredient: Galliano
       amount: 1.5
       unit: cl
-    - name: Orange juice
+    - ingredient: Orange juice
       amount: 9
       unit: cl
   preparation: Shaken
@@ -649,10 +649,10 @@
 - name: Italian stinger
   timing: After dinner
   ingredients:
-    - name: Cognac
+    - ingredient: Cognac
       amount: 3
       unit: cl
-    - name: Galliano
+    - ingredient: Galliano
       amount: 3
       unit: cl
   preparation: Stirred
@@ -660,13 +660,13 @@
 - name: Army and Navy
   timing: Pre-dinner
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 6
       unit: cl
-    - name: Lemon juice
+    - ingredient: Lemon juice
       amount: 2
       unit: cl
-    - name: Orgeat
+    - ingredient: Orgeat
       amount: 2
       unit: cl
   preparation: Shaken
@@ -674,13 +674,13 @@
 - name: "Bee's Knees"
   timing: Pre-dinner
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 6
       unit: cl
-    - name: Lemon juice
+    - ingredient: Lemon juice
       amount: 2
       unit: cl
-    - name: Honey syrup
+    - ingredient: Honey syrup
       amount: 2
       unit: cl
   preparation: Shaken
@@ -688,16 +688,16 @@
 - name: Bijou
   timing: Pre-dinner
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 3
       unit: cl
-    - name: Green Chartreuse
+    - ingredient: Green Chartreuse
       amount: 3
       unit: cl
-    - name: Sweet Vermouth
+    - ingredient: Sweet Vermouth
       amount: 3
       unit: cl
-    - name: Orange bitters
+    - ingredient: Orange bitters
       amount: 1
       unit: dash
   preparation: Stirred
@@ -705,13 +705,13 @@
 - name: Gimlet
   timing: Pre-dinner
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 5
       unit: cl
-    - name: Lime juice
+    - ingredient: Lime juice
       amount: 1
       unit: cl
-    - name: Simple syrup
+    - ingredient: Simple syrup
       amount: 1
       unit: cl
   preparation: Shaken
@@ -719,16 +719,16 @@
 - name: Martinez
   timing: Pre-dinner
   ingredients:
-    - name: Gin
+    - ingredient: Gin
       amount: 4
       unit: cl
-    - name: Sweet Vermouth
+    - ingredient: Sweet Vermouth
       amount: 4
       unit: cl
-    - name: Maraschino
+    - ingredient: Maraschino
       amount: 1
       unit: tsp
-    - name: Angostura bitters
+    - ingredient: Angostura bitters
       amount: 1
       unit: dash
   preparation: Stirred
@@ -736,10 +736,10 @@
 - name: B and B
   timing: After dinner
   ingredients:
-    - name: Cognac
+    - ingredient: Cognac
       amount: 3
       unit: cl
-    - name: Benedictine
+    - ingredient: Benedictine
       amount: 3
       unit: cl
   preparation: Stirred
@@ -747,10 +747,10 @@
 - name: Milk and honey
   timing: After dinner
   ingredients:
-    - name: Benedictine
+    - ingredient: Benedictine
       amount: 3
       unit: cl
-    - name: Milk
+    - ingredient: Milk
       amount: 3
       unit: cl
   preparation: Stirred
@@ -758,13 +758,13 @@
 - name: Derby cocktail
   timing: After dinner
   ingredients:
-    - name: Bourbon Whiskey
+    - ingredient: Bourbon Whiskey
       amount: 6
       unit: cl
-    - name: Benedictine
+    - ingredient: Benedictine
       amount: 0.75
       unit: cl
-    - name: Angustura
+    - ingredient: Angustura
       amount: 1
       unit: dash
   preparation: Stirred
@@ -772,13 +772,13 @@
 - name: Gypsy queen
   timing: After dinner
   ingredients:
-    - name: Vodka
+    - ingredient: Vodka
       amount: 6
       unit: cl
-    - name: Benedictine
+    - ingredient: Benedictine
       amount: 3
       unit: cl
-    - name: Angustura
+    - ingredient: Angustura
       amount: 2
       unit: dashes
   preparation: Stirred
@@ -786,13 +786,13 @@
 - name: Bobby Burns
   timing: After dinner
   ingredients:
-    - name: Scotch Whiskey
+    - ingredient: Scotch Whiskey
       amount: 4.5
       unit: cl
-    - name: Sweet Vermouth
+    - ingredient: Sweet Vermouth
       amount: 4.5
       unit: cl
-    - name: Benedictine
+    - ingredient: Benedictine
       amount: 2.3
       unit: cl
   preparation: Stirred
@@ -800,16 +800,16 @@
 - name: Vieux carre
   timing: After dinner
   ingredients:
-    - name: Cognac
+    - ingredient: Cognac
       amount: 2
       unit: cl
-    - name: Rye Whiskey
+    - ingredient: Rye Whiskey
       amount: 2
       unit: cl
-    - name: Sweet Vermouth
+    - ingredient: Sweet Vermouth
       amount: 2
       unit: cl
-    - name: Benedictine
+    - ingredient: Benedictine
       amount: 2
       unit: tsp
   preparation: Stirred
@@ -817,13 +817,13 @@
 - name: Chrysanthemum
   timing: All day
   ingredients:
-    - name: Dry Vermouth
+    - ingredient: Dry Vermouth
       amount: 6
       unit: cl
-    - name: Benedictine
+    - ingredient: Benedictine
       amount: 3
       unit: cl
-    - name: Absinthe
+    - ingredient: Absinthe
       amount: 0.75
       unit: cl
   preparation: Stirred
@@ -831,13 +831,13 @@
 - name: Shaken drake
   timing: All day
   ingredients:
-    - name: Kummel Korn
+    - ingredient: Kummel Korn
       amount: 6
       unit: cl
-    - name: Grapefruit juice
+    - ingredient: Grapefruit juice
       amount: 6
       unit: cl
-    - name: Maple syrup
+    - ingredient: Maple syrup
       amount: 1
       unit: bar spoon
   preparation: Shaken

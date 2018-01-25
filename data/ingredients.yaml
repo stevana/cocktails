@@ -1,60 +1,61 @@
-- name: Absinthe
-- name: Amaretto
-- name: Angostura bitters
-- name: Apricot Brandy
-- name: Benedictine
-- name: Bourbon Whiskey
-- name: Brandy
-- name: Cachaca
-- name: Cynar
-- name: Calvados
-- name: Campari
-- name: Champagne
-- name: Cherry
-- name: Cognac
-- name: Cointreau
-- name: Cranberry juice
-- name: Dark Rum
-- name: Dry Vermouth
-- name: Galliano
-- name: Gin
-- name: Old Tom Gin
-- name: Gomme syrup
-- name: Grand Marnier
-- name: Grapefruit juice
-- name: Green Chartreuse
-- name: Grenadine
-- name: Honey syrup
-- name: Kahlua
-- name: Lemon juice
-- name: Lemon zest
-- name: Light Rum
-- name: Lime juice
-- name: Maraschino
-- name: Maple syrup
-- name: Orange bitters
-- name: Orange juice
-- name: Orgeat
-- name: Peach bitters
-- name: "Peychaud's bitters"
-- name: Pineapple juice
-- name: Port wine
-- name: Raspberry syrup
-- name: Sweet Vermouth
-- name: Rich syrup
-- name: Rye Whiskey
-- name: Simple syrup
-# - name: St. Germain
-- name: Tequila
-- name: Triple Sec
-- name: Vodka
-- name: Scotch Whiskey
-- name: Yellow Chartreuse
-- name: Soda water
-- name: Egg white
-- name: Egg yolk
-- name: Red wine syrup
-- name: Creme de Violette
-- name: Lillet Blanc
-- name: Kummel Korn
-- name: Drambuie
+- ingredient: Absinthe
+- ingredient: Amaretto
+- ingredient: Angostura bitters
+- ingredient: Apricot Brandy
+- ingredient: Benedictine
+- ingredient: Bourbon Whiskey
+- ingredient: Brandy
+- ingredient: Cachaca
+- ingredient: Cynar
+- ingredient: Calvados
+- ingredient: Campari
+- ingredient: Champagne
+- ingredient: Cherry
+- ingredient: Cherry Heering
+- ingredient: Cognac
+- ingredient: Cointreau
+- ingredient: Cranberry juice
+- ingredient: Dark Rum
+- ingredient: Dry Vermouth
+- ingredient: Galliano
+- ingredient: Gin
+- ingredient: Old Tom Gin
+- ingredient: Gomme syrup
+- ingredient: Grand Marnier
+- ingredient: Grapefruit juice
+- ingredient: Green Chartreuse
+- ingredient: Grenadine
+- ingredient: Honey syrup
+- ingredient: Kahlua
+- ingredient: Lemon juice
+- ingredient: Lemon zest
+- ingredient: Light Rum
+- ingredient: Lime juice
+- ingredient: Maraschino
+- ingredient: Maple syrup
+- ingredient: Orange bitters
+- ingredient: Orange juice
+- ingredient: Orgeat
+- ingredient: Peach bitters
+- ingredient: "Peychaud's bitters"
+- ingredient: Pineapple juice
+- ingredient: Port wine
+- ingredient: Raspberry syrup
+- ingredient: Sweet Vermouth
+- ingredient: Rich syrup
+- ingredient: Rye Whiskey
+- ingredient: Simple syrup
+- ingredient: "St. Germain"
+- ingredient: Tequila
+- ingredient: Triple Sec
+- ingredient: Vodka
+- ingredient: Scotch Whiskey
+- ingredient: Yellow Chartreuse
+- ingredient: Soda water
+- ingredient: Egg white
+- ingredient: Egg yolk
+- ingredient: Red wine syrup
+- ingredient: Creme de Violette
+- ingredient: Lillet Blanc
+- ingredient: Kummel Korn
+- ingredient: Drambuie

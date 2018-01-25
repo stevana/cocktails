@@ -1,12 +1,17 @@
 <html>
+
 <head>
+  <title>Cocktails</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
+<ul>
 {{#menu}}
-<a href={{link}}>{{text}}</a> |
+<li><a href={{link}}>{{text}}</a></li>
 {{/menu}}
-<br/>
+</ul>
+<hr/>
 {{#cocktails}}
 
 <h3>{{name}}</h3>
@@ -15,7 +20,7 @@
 
 <ul>
 {{#ingredients}}
- <li>{{amount}} {{unit}} {{name}}</li>
+ <li>{{amount}} {{unit}} {{ingredient}}</li>
 {{/ingredients}}
 </ul>
 
@@ -23,4 +28,5 @@
 
 {{/cocktails}}
 </body>
+
 </html>

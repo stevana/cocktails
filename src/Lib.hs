@@ -13,7 +13,7 @@ import           Control.Exception          (SomeException, catch)
 import           Control.Lens               (at, folded, ifolded, re, review,
                                              to, traversed, withIndex, (%~),
                                              (&), (.~), (?~), (^.), (^..), (^?),
-                                             (^?!), _Just)
+                                             (^?!), _Just, (^@..))
 import           Control.Monad
 import           Data.Aeson                 as Json
 import           Data.Aeson.Lens
@@ -108,7 +108,14 @@ setupDb = do
 
   createDirectoryIfMissing True distDir
 
+  -- Clear database.
   post url (object [ "query" .= String "MATCH(n) DETACH DELETE n;" ])
+
+  post url (object [ "query" .= String
+      "CREATE CONSTRAINT ON (i:Ingredient) ASSERT i.ingredient IS UNIQUE;" ])
+
+  post url (object [ "query" .= String
+      "CREATE CONSTRAINT ON (c:Cocktail) ASSERT c.name IS UNIQUE;" ])
 
   LT.writeFile (distDir </> cypherFile) . ingredients =<<
     parseYaml "data/ingredients.yaml"
@@ -116,61 +123,43 @@ setupDb = do
   yaml <- parseYaml "data/cocktails.yaml"
 
   LT.appendFile (distDir </> cypherFile) (cocktails yaml)
-  T.appendFile (distDir </> cypherFile) (recipes yaml)
+  LT.appendFile (distDir </> cypherFile) (recipes yaml)
 
   cypher <- T.readFile (distDir </> cypherFile)
   void (post url (object [ "query" .= cypher ]))
 
-recipes' :: Value -> LT.Text
-recipes' v = mustache (addAlphaNumField "name" v')
-  "{{#.}} \
-  \{{#ingredients}} \
-  \  CREATE ({{name-alpha-num}})-[:CONTAINS \
-  \    { amount: {{amount}} \
-  \    , unit:   {{unit}}   \
-  \    , index:  {{index}}  \
-  \    }) \
-  \  ->({{name}})\n \
-  \{{/ingredients}} \
+recipes :: Value -> LT.Text
+recipes v = mustache (addAlphaNumField "name" v')
+  "{{#.}}\
+  \{{#ingredients}}\
+  \CREATE ({{name-alpha-num}})-[:CONTAINS\n\
+  \  { amount: {{amount}}\n\
+  \  , unit:   \"{{unit}}\"\n\
+  \  , index:  {{index}}\n\
+  \  }]->\
+  \({{ingredient-alpha-num}})\n\
+  \{{/ingredients}}\
   \{{/.}}"
   where
-  vs :: [(Int, Value)]
-  vs = v ^.. values . withIndex
-  v' :: Value
-  v' = Array $ V.fromList $ map (\(ix, o) -> o & _Object %~ (\u -> u & at "index" ?~ review _Integer (toInteger ix))) vs
+  v' = v & values . key "ingredients" . values . _Object %~
+            (\o -> o & at "ingredient-alpha-num" .~
+              (o ^. at "ingredient" & _Just . _String %~ T.filter isAsciiAlphaNum))
+         & values . key "ingredients" . _Array %~ addIndexField
 
-recipes :: Value -> Text
-recipes (Array vec) = T.unlines $ concatMap go (V.toList vec)
-  where
-  go :: Value -> [Text]
-  go v = flip map (zip ingredients [0..]) $ \(ingredient, ix) ->
-           create (v^?! key "name" . _String)
-                  (ingredient ^?! key "name"   . _String)
-                  (ingredient ^?! key "amount" . _Number)
-                  (ingredient ^?! key "unit"   . _String)
-                  ix
-    where
-    ingredients = v ^?! key "ingredients" . _Array . to V.toList
-
-    create :: Text -> Text -> Scientific -> Text -> Int -> Text
-    create cname iname amount unit ix = mconcat
-      [ "CREATE (", T.filter isAsciiAlphaNum cname, ")-[:CONTAINS "
-      , "{amount: ", T.pack $ case floatingOrInteger amount of
-                               Left  r -> show r
-                               Right i -> show i
-      , ", unit: \"", unit, "\""
-      , ", index: ", T.pack (show ix)
-      , "}]->(", T.filter isAsciiAlphaNum iname, ")"
-      ]
+addIndexField :: Vector Value -> Vector Value
+addIndexField vec = V.zipWith
+  (\ix o -> o & _Object . at "index" ?~ ix^.re _Integer)
+  (V.fromList [0 .. toInteger (V.length vec - 1)])
+  vec
 
 cocktails :: Value -> LT.Text
 cocktails v = mustache (addAlphaNumField "name" v)
-  "{{#.}} \
-  \  CREATE ({{name-alpha-num}}:Cocktail \
-  \    { name:        \"{{name}}\" \
-  \    , timing:      \"{{timing}}\" \
-  \    , preparation: \"{{preparation}}\" \
-  \    })\n \
+  "{{#.}}\
+  \CREATE ({{name-alpha-num}}:Cocktail\n\
+  \  { name:        \"{{name}}\"\n\
+  \  , timing:      \"{{timing}}\"\n\
+  \  , preparation: \"{{preparation}}\"\n\
+  \  })\n\
   \{{/.}}"
 
 addAlphaNumField :: Text -> Value -> Value
@@ -179,11 +168,10 @@ addAlphaNumField field v = v & values . _Object %~
     (o ^. at field & _Just . _String %~ T.filter isAsciiAlphaNum))
 
 ingredients :: Value -> LT.Text
-ingredients v = mustache (addAlphaNumField "name" v)
-  "{{#.}} \
-  \  CREATE ({{name-alpha-num}}:Ingredient \
-  \    { name: \"{{name}}\" \
-  \    }) \
+ingredients v = mustache (addAlphaNumField "ingredient" v)
+  "{{#.}}\
+  \CREATE ({{ingredient-alpha-num}}:Ingredient\
+  \  { ingredient: \"{{ingredient}}\" })\n\
   \{{/.}}"
 
 isAsciiAlphaNum :: Char -> Bool
@@ -201,6 +189,10 @@ process v = do
                   , ("ingredient-Vodka.html", "vodka")
                   , ("ingredient-Cognac.html", "cognac")
                   , ("ingredient-Champagne.html", "champagne")
+                  , ("timing-Predinner.html", "pre-dinner")
+                  , ("timing-Longdrink.html", "longdrink")
+                  , ("timing-Allday.html", "all day")
+                  , ("timing-Afterdinner.html", "after dinner")
                   ]
 
   let menuJson = object
@@ -209,8 +201,7 @@ process v = do
                                 , "text" .= String text]) menuPairs]
 
   forM_ (zip4 names queries paramss templates) $ \(name, query, params, template) -> do
-    templateDir <- getDataFileName "data/templates"
-    template' <- compileMustacheDir (PName template) templateDir
+    template' <- compileMustacheFile =<< getDataFileName "data/templates/site.mustache"
 
     if V.null params
     then do
