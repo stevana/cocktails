@@ -1,7 +1,5 @@
 html {
-	  margin: 100px;
-	  margin-left: 250px;
-	  padding: 20px;
+	  margin: 10px;
 }
 
 body { 
@@ -32,12 +30,7 @@ a:hover, a:focus {
              text-decoration: underline; 
              color: #000000;
          }
-
-.menu ul li.active-link>a {
-    text-decoration: underline; 
-    border-bottom: 1px solid #000000;
-}
-
+/*
 .header {
     font-family: georgia, sans-serif;
     padding: 5px;
@@ -57,6 +50,7 @@ a:hover, a:focus {
     z-index: 100;
     position: fixed;
 }
+*/
 
 .menu ul {
 	  margin: 0;
