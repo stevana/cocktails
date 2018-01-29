@@ -11,7 +11,7 @@
                                 })
          , preparation: c.preparation
          } AS cocktail
-    ORDER BY cocktail.timing DESC, cocktail.name
+    ORDER BY cocktail.name
     RETURN {cocktails: collect(cocktail)};
   params: []
   template: site
@@ -31,7 +31,7 @@
                                 })
          , preparation: c.preparation
          } AS cocktail
-    ORDER BY cocktail.timing DESC, cocktail.name
+    ORDER BY cocktail.name
     RETURN {cocktails: collect(cocktail)};
   params:
     - ingredient: Gin
@@ -56,7 +56,7 @@
                                 })
          , preparation: c.preparation
          } AS cocktail
-    ORDER BY cocktail.timing DESC, cocktail.name
+    ORDER BY cocktail.name
     RETURN {cocktails: collect(cocktail)};
   params:
     - timing: Pre-dinner
