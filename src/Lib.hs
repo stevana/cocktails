@@ -33,7 +33,7 @@ import           Data.Vector                (Vector)
 import qualified Data.Vector                as V
 import           Data.Yaml
 import           Network.Wreq
-import           System.Directory           (createDirectoryIfMissing)
+import           System.Directory           (createDirectoryIfMissing, copyFile)
 import           System.Exit                (ExitCode (..))
 import           System.FilePath            ((<.>), (</>))
 import           System.Process             (rawSystem)
@@ -159,6 +159,7 @@ cocktails v = mustache (addAlphaNumField "name" v)
   \  { name:        \"{{name}}\"\n\
   \  , timing:      \"{{timing}}\"\n\
   \  , preparation: \"{{preparation}}\"\n\
+  \  , taste:       \"{{taste}}\"\n\
   \  })\n\
   \{{/.}}"
 
@@ -182,23 +183,32 @@ generateContent = process =<< parseYaml "data/queries.yaml"
 
 process :: Value -> IO ()
 process v = do
-  let menuPairs = [ ("index.html", "all")
-                  , ("ingredient-Gin.html", "gin")
-                  , ("ingredient-Whiskey.html", "whiskey")
-                  , ("ingredient-Rum.html", "rum")
-                  , ("ingredient-Vodka.html", "vodka")
-                  , ("ingredient-Cognac.html", "cognac")
-                  , ("ingredient-Champagne.html", "champagne")
-                  , ("timing-Predinner.html", "pre-dinner")
-                  , ("timing-Longdrink.html", "longdrink")
-                  , ("timing-Allday.html", "all day")
-                  , ("timing-Afterdinner.html", "after dinner")
+  let menuPairs = [ ("index.html", "All")
+                  , ("ingredient-Gin.html", "Gin")
+                  , ("ingredient-Whiskey.html", "Whiskey")
+                  , ("ingredient-Rum.html", "Rum")
+                  , ("ingredient-Vodka.html", "Vodka")
+                  , ("ingredient-Cognac.html", "Cognac")
+                  , ("ingredient-Champagne.html", "Champagne")
+                  , ("timing-Predinner.html", "Pre-dinner")
+                  , ("timing-Longdrink.html", "Longdrink")
+                  , ("timing-Allday.html", "All day")
+                  , ("timing-Afterdinner.html", "After dinner")
+                  , ("taste-Fresh.html", "Fresh")
+                  , ("taste-Boozy.html", "Boozy")
+                  , ("taste-Sour.html", "Sour")
+                  , ("taste-Bittersweet.html", "Bitter sweet")
+                  , ("taste-Sweet.html", "Sweet")
+                  , ("taste-Salty.html", "Salty")
                   ]
 
   let menuJson = object
                    ["menu" .= map (\(link, text) ->
                          object [ "link" .= String link
                                 , "text" .= String text]) menuPairs]
+
+  css <- getDataFileName "data/style.css"
+  copyFile css (distDir </> "style.css")
 
   forM_ (zip4 names queries paramss templates) $ \(name, query, params, template) -> do
     template' <- compileMustacheFile =<< getDataFileName "data/templates/site.mustache"

@@ -5,6 +5,7 @@
     ORDER BY r.index
     WITH { name:        c.name
          , timing:      c.timing
+         , taste:       c.taste
          , ingredients: collect({ ingredient: i.ingredient
                                 , amount:     r.amount
                                 , unit:       r.unit
@@ -25,6 +26,7 @@
     ORDER BY r.index
     WITH { name:        c.name
          , timing:      c.timing
+         , taste:       c.taste
          , ingredients: collect({ ingredient: i.ingredient
                                 , amount:     r.amount
                                 , unit:       r.unit
@@ -50,6 +52,7 @@
     ORDER BY r.index
     WITH { name:        c.name
          , timing:      c.timing
+         , taste:       c.taste
          , ingredients: collect({ ingredient: i.ingredient
                                 , amount:     r.amount
                                 , unit:       r.unit
@@ -63,4 +66,30 @@
     - timing: Longdrink
     - timing: "All day"
     - timing: "After dinner"
+  template: site
+
+- name: taste
+  query: >-
+    MATCH (c:Cocktail)-[r:CONTAINS]->(i:Ingredient)
+    WHERE c.taste = {taste}
+    WITH c, r, i
+    ORDER BY r.index
+    WITH { name:        c.name
+         , timing:      c.timing
+         , taste:       c.taste
+         , ingredients: collect({ ingredient: i.ingredient
+                                , amount:     r.amount
+                                , unit:       r.unit
+                                })
+         , preparation: c.preparation
+         } AS cocktail
+    ORDER BY cocktail.name
+    RETURN {cocktails: collect(cocktail)};
+  params:
+    - taste: Fresh
+    - taste: Boozy
+    - taste: Sweet
+    - taste: Bitter sweet
+    - taste: Sour
+    - taste: Salty
   template: site

@@ -1,5 +1,6 @@
 - name: Americano
   timing: Pre-dinner
+  taste: Bitter sweet
   ingredients:
     - ingredient: Campari
       amount: 3
@@ -14,6 +15,7 @@
 
 - name: Daiquiri
   timing: Pre-dinner
+  taste: Fresh
   ingredients:
     - ingredient: Light Rum
       amount: 4.5
@@ -28,6 +30,7 @@
 
 - name: Hemingway Daiquiri
   timing: Pre-dinner
+  taste: Fresh
   ingredients:
     - ingredient: Light Rum
       amount: 6
@@ -45,6 +48,7 @@
 
 - name: Whiskey Sour
   timing: Pre-dinner
+  taste: Sour
   ingredients:
     - ingredient: Bourbon Whiskey
       amount: 4.5
@@ -62,6 +66,7 @@
 
 - name: Napa Vally Sour
   timing: Pre-dinner
+  taste: Sour
   ingredients:
     - ingredient: Rye Whiskey
       amount: 6
@@ -79,6 +84,7 @@
 
 - name: Grand Marnier Sour
   timing: Pre-dinner
+  taste: Sour
   ingredients:
     - ingredient: Grand Marnier
       amount: 4
@@ -93,6 +99,7 @@
 
 - name: Bacardi
   timing: Pre-dinner
+  taste: Fresh
   ingredients:
     - ingredient: Light Rum
       amount: 4.5
@@ -107,19 +114,21 @@
 
 - name: Dry Martini
   timing: Pre-dinner
+  taste: Boozy
   ingredients:
     - ingredient: Gin
       amount: 6
       unit: cl
     - ingredient: Dry Vermouth
-      amount: 1
+      amount: 3
       unit: cl
   preparation: Stirred
 
 - name: Manhattan
   timing: Pre-dinner
+  taste: Boozy
   ingredients:
-    - ingredient: RyeWhiskey
+    - ingredient: Rye Whiskey
       amount: 5
       unit: cl
     - ingredient: Sweet Vermouth
@@ -129,12 +138,10 @@
       amount: 1
       unit: dash
   preparation: Stirred
-  taste: 
-    - Boozy
-    - Sweet
 
 - name: Negroni
   timing: Pre-dinner
+  taste: Bitter sweet
   ingredients:
     - ingredient: Gin
       amount: 3
@@ -146,12 +153,10 @@
       amount: 3
       unit: cl
   preparation: Stirred
-  taste:
-    - Bitter
-    - Sweet
 
 - name: Boulevardier
   timing: Pre-dinner
+  taste: Bitter sweet
   ingredients:
     - ingredient: Bourbon Whiskey
       amount: 3
@@ -163,12 +168,10 @@
       amount: 3
       unit: cl
   preparation: Stirred
-  taste:
-    - Bitter
-    - Sweet
 
 - name: Old Pal
   timing: Pre-dinner
+  taste: Bitter sweet
   ingredients:
     - ingredient: Rye Whiskey
       amount: 3
@@ -183,6 +186,7 @@
 
 - name: Old Fashioned
   timing: Pre-dinner
+  taste: Boozy
   ingredients:
     - ingredient: Rye Whiskey
       amount: 6
@@ -197,9 +201,10 @@
 
 - name: Blood and Sand
   timing: Pre-dinner
+  taste: Sweet
   ingredients:
     - ingredient: Scotch Whiskey
-      amount: 4
+      amount: 2
       unit: cl
     - ingredient: Sweet Vermouth
       amount: 2
@@ -210,10 +215,12 @@
     - ingredient: Orange juice
       amount: 2
       unit: cl
-  preparation: Stirred
+  preparation: Shaken
+  source: The Savoy Cocktail Book, Harry Craddock (1930)
 
 - name: Cynar Toronto
   timing: Pre-dinner
+  taste: Bitter sweet
   ingredients:
     - ingredient: Rye Whiskey
       amount: 6
@@ -225,12 +232,10 @@
       amount: 4
       unit: dashes
   preparation: Stirred
-  taste:
-    - Bitter
-    - Sweet
 
 - name: Bitter Mimosa
   timing: All day
+  taste: Fresh
   ingredients:
     - ingredient: Champagne
       amount: 9
@@ -243,8 +248,22 @@
       unit: cl
   preparation: Stirred
 
+- name: Black Velvet
+  timing: All day
+  taste: Fresh
+  ingredients:
+    - ingredient: Champagne
+      amount: 4
+      unit: cl
+    - ingredient: Guinness Stout
+      amount: 4
+      unit: cl
+  preparation: Stirred
+  source: The Savoy Cocktail Book, Harry Craddock (1930)
+
 - name: Boulevard
   timing: Pre-dinner
+  taste: Boozy
   ingredients:
     - ingredient: Bourbon Whiskey
       amount: 7.5
@@ -260,8 +279,9 @@
       unit: dashes
   preparation: Stirred
 
-- name: Angel face
+- name: Angel Face
   timing: All day
+  taste: Boozy
   ingredients:
     - ingredient: Gin
       amount: 3
@@ -273,9 +293,11 @@
       amount: 3
       unit: cl
   preparation: Shaken
+  source: The Savoy Cocktail Book, Harry Craddock (1930)
 
 - name: Aviation
   timing: All day
+  taste: Fresh
   ingredients:
     - ingredient: Gin
       amount: 4.5
@@ -286,7 +308,7 @@
     - ingredient: Maraschino
       amount: 1
       unit: tsp
-    - ingredient: Creme de Violette
+    - ingredient: Crème de Violette
       amount: 1
       unit: tsp
   preparation: Shaken
@@ -294,6 +316,7 @@
 
 - name: White lady
   timing: All day
+  taste: Fresh
   ingredients:
     - ingredient: Gin
       amount: 4
@@ -308,6 +331,7 @@
 
 - name: Between the sheets
   timing: All day
+  taste: Boozy
   ingredients:
     - ingredient: Light Rum
       amount: 3
@@ -325,6 +349,7 @@
 
 - name: Cosmopolitan
   timing: All day
+  taste: Fresh
   ingredients:
     - ingredient: Vodka
       amount: 4
@@ -342,6 +367,7 @@
 
 - name: Casino
   timing: All day
+  taste: Fresh
   ingredients:
     - ingredient: Old Tom Gin
       amount: 4
@@ -359,6 +385,7 @@
 
 - name: Clover Club
   timing: All day
+  taste: Fresh
   ingredients:
     - ingredient: Gin
       amount: 4.5
@@ -376,6 +403,7 @@
 
 - name: Mary Pickford
   timing: All day
+  taste: Fresh
   ingredients:
     - ingredient: Light Rum
       amount: 6
@@ -393,6 +421,7 @@
 
 - name: Monkey Gland
   timing: All day
+  taste: Fresh
   ingredients:
     - ingredient: Gin
       amount: 5
@@ -410,6 +439,7 @@
 
 - name: Paradise
   timing: All day
+  taste: Fresh
   ingredients:
     - ingredient: Gin
       amount: 3.5
@@ -424,6 +454,7 @@
 
 - name: Screwdriver
   timing: All day
+  taste: Fresh
   ingredients:
     - ingredient: Vodka
       amount: 5
@@ -435,6 +466,7 @@
 
 - name: Salty dog
   timing: All day
+  taste: Salty
   ingredients:
     - ingredient: Gin
       amount: 5
@@ -446,6 +478,7 @@
 
 - name: Sidecar
   timing: All day
+  taste: Fresh
   ingredients:
     - ingredient: Cognac
       amount: 5
@@ -460,6 +493,7 @@
 
 - name: Tuxedo
   timing: All day
+  taste: Boozy
   ingredients:
     - ingredient: Gin
       amount: 3
@@ -480,6 +514,7 @@
 
 - name: Blinker
   timing: All day
+  taste: Unknown
   ingredients:
     - ingredient: Rye Whiskey
       amount: 6
@@ -494,6 +529,7 @@
 
 - name: Gin fizz
   timing: Longdrink
+  taste: Fresh
   ingredients:
     - ingredient: Gin
       amount: 4.5
@@ -511,6 +547,7 @@
 
 - name: John Collins
   timing: Longdrink
+  taste: Fresh
   ingredients:
     - ingredient: Gin
       amount: 4.5
@@ -528,6 +565,7 @@
 
 - name: Tom Collins
   timing: Longdrink
+  taste: Fresh
   ingredients:
     - ingredient: Old Tom Gin
       amount: 4.5
@@ -545,6 +583,7 @@
 
 - name: Porto flip
   timing: After dinner
+  taste: Unknown
   ingredients:
     - ingredient: Cognac
       amount: 1.5
@@ -559,6 +598,7 @@
 
 - name: Rusty nail
   timing: After dinner
+  taste: Boozy
   ingredients:
     - ingredient: Scotch Whiskey
       amount: 4.5
@@ -570,6 +610,7 @@
 
 - name: Sazerac
   timing: After dinner
+  taste: Boozy
   ingredients:
     - ingredient: Cognac
       amount: 5
@@ -587,6 +628,7 @@
 
 - name: French connection
   timing: After dinner
+  taste: Sweet
   ingredients:
     - ingredient: Cognac
       amount: 3
@@ -598,6 +640,7 @@
 
 - name: Godfather
   timing: After dinner
+  taste: Sweet
   ingredients:
     - ingredient: Bourbon Whiskey
       amount: 3
@@ -609,6 +652,7 @@
 
 - name: Godmother
   timing: After dinner
+  taste: Sweet
   ingredients:
     - ingredient: Vodka
       amount: 3
@@ -620,6 +664,7 @@
   
 - name: Vesper
   timing: Pre-dinner
+  taste: Boozy
   ingredients:
     - ingredient: Gin
       amount: 6
@@ -634,6 +679,7 @@
 
 - name: Harvey Wallbanger
   timing: All day
+  taste: Fresh
   ingredients:
     - ingredient: Vodka
       amount: 4.5
@@ -648,6 +694,7 @@
 
 - name: Italian stinger
   timing: After dinner
+  taste: Sweet
   ingredients:
     - ingredient: Cognac
       amount: 3
@@ -659,6 +706,7 @@
 
 - name: Army and Navy
   timing: Pre-dinner
+  taste: Fresh
   ingredients:
     - ingredient: Gin
       amount: 6
@@ -673,6 +721,7 @@
 
 - name: "Bee's Knees"
   timing: Pre-dinner
+  taste: Fresh
   ingredients:
     - ingredient: Gin
       amount: 6
@@ -687,6 +736,7 @@
 
 - name: Bijou
   timing: Pre-dinner
+  taste: Fresh
   ingredients:
     - ingredient: Gin
       amount: 3
@@ -704,6 +754,7 @@
 
 - name: Gimlet
   timing: Pre-dinner
+  taste: Sour
   ingredients:
     - ingredient: Gin
       amount: 5
@@ -718,6 +769,7 @@
 
 - name: Martinez
   timing: Pre-dinner
+  taste: Fresh
   ingredients:
     - ingredient: Gin
       amount: 4
@@ -735,6 +787,7 @@
 
 - name: B and B
   timing: After dinner
+  taste: Sweet
   ingredients:
     - ingredient: Cognac
       amount: 3
@@ -746,6 +799,7 @@
 
 - name: Milk and honey
   timing: After dinner
+  taste: Sweet
   ingredients:
     - ingredient: Benedictine
       amount: 3
@@ -757,6 +811,7 @@
 
 - name: Derby cocktail
   timing: After dinner
+  taste: Boozy
   ingredients:
     - ingredient: Bourbon Whiskey
       amount: 6
@@ -771,6 +826,7 @@
 
 - name: Gypsy queen
   timing: After dinner
+  taste: Unknown
   ingredients:
     - ingredient: Vodka
       amount: 6
@@ -785,20 +841,23 @@
 
 - name: Bobby Burns
   timing: After dinner
+  taste: Sweet
   ingredients:
     - ingredient: Scotch Whiskey
-      amount: 4.5
+      amount: 4
       unit: cl
     - ingredient: Sweet Vermouth
-      amount: 4.5
+      amount: 4
       unit: cl
     - ingredient: Benedictine
-      amount: 2.3
-      unit: cl
+      amount: 3
+      unit: dashes
   preparation: Stirred
+  source: The Savoy Cocktail Book, Harry Craddock (1930)
 
 - name: Vieux carre
   timing: After dinner
+  taste: Boozy
   ingredients:
     - ingredient: Cognac
       amount: 2
@@ -816,6 +875,7 @@
 
 - name: Chrysanthemum
   timing: All day
+  taste: Unknown
   ingredients:
     - ingredient: Dry Vermouth
       amount: 6
@@ -830,8 +890,9 @@
 
 - name: Shaken drake
   timing: All day
+  taste: Fresh
   ingredients:
-    - ingredient: Kummel Korn
+    - ingredient: Kümmel Korn
       amount: 6
       unit: cl
     - ingredient: Grapefruit juice

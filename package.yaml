@@ -19,6 +19,7 @@ extra-source-files:
 data-files:
   - data/*.yaml
   - data/templates/*.mustache
+  - data/style.css
 
 dependencies:
   - aeson
