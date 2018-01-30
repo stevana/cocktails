@@ -13,7 +13,7 @@ import           Control.Exception          (SomeException, catch)
 import           Control.Lens               (at, folded, ifolded, re, review,
                                              to, traversed, withIndex, (%~),
                                              (&), (.~), (?~), (^.), (^..), (^?),
-                                             (^?!), _Just, (^@..))
+                                             (^?!), (^@..), _Just)
 import           Control.Monad
 import           Data.Aeson                 as Json
 import           Data.Aeson.Lens
@@ -33,7 +33,7 @@ import           Data.Vector                (Vector)
 import qualified Data.Vector                as V
 import           Data.Yaml
 import           Network.Wreq
-import           System.Directory           (createDirectoryIfMissing, copyFile)
+import           System.Directory           (copyFile, createDirectoryIfMissing)
 import           System.Exit                (ExitCode (..))
 import           System.FilePath            ((<.>), (</>))
 import           System.Process             (rawSystem)
@@ -181,31 +181,25 @@ isAsciiAlphaNum c = isAscii c && isAlphaNum c
 generateContent :: IO ()
 generateContent = process =<< parseYaml "data/queries.yaml"
 
+makeMenu :: Value -> Value
+makeMenu v =
+  v & _Object . at "menu" . _Just . values %~
+        (\o -> o & _Object . at "items" . _Just . values %~ (\o' ->
+                     addFieldIfItDoesntExist "link" (makeLink o o') o'))
+  where
+  makeLink o o' =
+    o^._Object . at "category" . _Just . _String
+    <> "-" <>
+    o'^._Object. at "text" . _Just . _String . to (T.filter isAsciiAlphaNum)
+    <> ".html"
+
+addFieldIfItDoesntExist :: Text -> Text -> Value -> Value
+addFieldIfItDoesntExist field value object =
+  object & _Object . at field %~ maybe (Just (String value)) Just
+
 process :: Value -> IO ()
 process v = do
-  let menuPairs = [ ("index.html", "All")
-                  , ("ingredient-Gin.html", "Gin")
-                  , ("ingredient-Whiskey.html", "Whiskey")
-                  , ("ingredient-Rum.html", "Rum")
-                  , ("ingredient-Vodka.html", "Vodka")
-                  , ("ingredient-Cognac.html", "Cognac")
-                  , ("ingredient-Champagne.html", "Champagne")
-                  , ("timing-Predinner.html", "Pre-dinner")
-                  , ("timing-Longdrink.html", "Longdrink")
-                  , ("timing-Allday.html", "All day")
-                  , ("timing-Afterdinner.html", "After dinner")
-                  , ("taste-Fresh.html", "Fresh")
-                  , ("taste-Boozy.html", "Boozy")
-                  , ("taste-Sour.html", "Sour")
-                  , ("taste-Bittersweet.html", "Bitter sweet")
-                  , ("taste-Sweet.html", "Sweet")
-                  , ("taste-Salty.html", "Salty")
-                  ]
-
-  let menuJson = object
-                   ["menu" .= map (\(link, text) ->
-                         object [ "link" .= String link
-                                , "text" .= String text]) menuPairs]
+  menuJson <- makeMenu <$> parseYaml "data/menu.yaml"
 
   css <- getDataFileName "data/style.css"
   copyFile css (distDir </> "style.css")

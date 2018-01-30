@@ -1,0 +1,25 @@
+menu:
+- category: Ingredient
+  items:
+    - text: All
+      link: index.html
+    - text: Gin
+    - text: Whiskey
+    - text: Rum
+    - text: Vodka
+    - text: Cognac
+    - text: Champagne
+- category: Timing
+  items:
+    - text: Pre-dinner
+    - text: Longdrink
+    - text: All day
+    - text: After dinner
+- category: Taste
+  items:
+    - text: Fresh
+    - text: Boozy
+    - text: Sour
+    - text: Bitter sweet
+    - text: Sweet
+    - text: Salty

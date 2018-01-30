@@ -16,7 +16,7 @@
     RETURN {cocktails: collect(cocktail)};
   params: []
   template: site
-- name: ingredient
+- name: Ingredient
   query: >-
     MATCH (i:Ingredient)<--(cc:Cocktail)
     WHERE i.ingredient CONTAINS {ingredient}
@@ -44,7 +44,7 @@
     - ingredient: Champagne
   template: site
 
-- name: timing
+- name: Timing
   query: >-
     MATCH (c:Cocktail)-[r:CONTAINS]->(i:Ingredient)
     WHERE c.timing = {timing}
@@ -68,7 +68,7 @@
     - timing: "After dinner"
   template: site
 
-- name: taste
+- name: Taste
   query: >-
     MATCH (c:Cocktail)-[r:CONTAINS]->(i:Ingredient)
     WHERE c.taste = {taste}

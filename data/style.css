@@ -29,9 +29,9 @@ a.current {
     text-decoration: underline;
 }
 
-/*
 .header {
     font-family: georgia, sans-serif;
+/*
     padding: 5px;
     margin-left: 20px;
     width: 230px;
@@ -39,17 +39,19 @@ a.current {
     left: 0;
     z-index: 100;
     position: fixed;
+*/
 }
 
 .menu {
     font-family: georgia, sans-serif;
+/*
     padding: 5px;
     width: 230px;
     right: 400px;
     z-index: 100;
     position: fixed;
-}
 */
+}
 
 .menu ul {
 	  margin: 0;
@@ -59,4 +61,12 @@ a.current {
 .menu li {
 	  display: block;
 	  list-style-type: none;
+	  padding-left: 10px;
+}
+
+.category {
+    font-family: bold georgia, sans-serif;
+    padding: 0px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
 }

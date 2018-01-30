@@ -14,16 +14,24 @@
 <h1>Cocktails</h1>
 
 <nav id="nav" class="menu">
-
 <ul>
 {{#menu}}
-  <li><a href={{link}}>{{text}}</a></li>
+  <li><h5 class="category">{{category}}</h5>
+    <ul>
+{{#items}}
+      <li><a href={{link}}>{{text}}</a></li>
+{{/items}}
+   </ul>
+  </li>
 {{/menu}}
 </ul>
 
 </nav>
 
 </header>
+
+<br />
+<hr />
 
 {{#cocktails}}
 <h3>{{name}}</h3>
