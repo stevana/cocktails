@@ -9,32 +9,48 @@
 
 <body>
 
-<div class="header">
-  <h1>Cocktails</h1>
-</div>
+<header>
 
-<nav class="menu">
+<h1>Cocktails</h1>
+
+<nav id="nav" class="menu">
+
 <ul>
 {{#menu}}
-<li><a href={{link}}>{{text}}</a></li>
+  <li><a href={{link}}>{{text}}</a></li>
 {{/menu}}
 </ul>
-</nav>
-{{#cocktails}}
 
+</nav>
+
+</header>
+
+{{#cocktails}}
 <h3>{{name}}</h3>
 
 <i>({{timing}} -- {{taste}})</i>
 
 <ul>
 {{#ingredients}}
- <li>{{amount}} {{unit}} {{ingredient}}</li>
+  <li>{{amount}} {{unit}} {{ingredient}}</li>
 {{/ingredients}}
 </ul>
 
 {{preparation}}.
 
 {{/cocktails}}
+
+<script>
+var anchor  = document.getElementById('nav').getElementsByTagName('a'),
+    current = window.location.pathname.split('/').reverse()[0];
+for (var i = 0; i < anchor.length; i++) {
+    if (current == anchor[i].href.split("/").reverse()[0]) {
+       anchor[i].className = 'current';
+       break;
+    }
+}
+</script>
+
 </body>
 
 </html>
