@@ -203,7 +203,7 @@
   timing: Pre-dinner
   taste: Sweet
   ingredients:
-    - ingredient: Scotch Whiskey
+    - ingredient: Scotch Whisky
       amount: 2
       unit: cl
     - ingredient: Sweet Vermouth
@@ -585,7 +585,7 @@
   timing: After dinner
   taste: Unknown
   ingredients:
-    - ingredient: Cognac
+    - ingredient: Brandy
       amount: 1.5
       unit: cl
     - ingredient: Port wine
@@ -600,7 +600,7 @@
   timing: After dinner
   taste: Boozy
   ingredients:
-    - ingredient: Scotch Whiskey
+    - ingredient: Scotch Whisky
       amount: 4.5
       unit: cl
     - ingredient: Drambuie
@@ -696,7 +696,7 @@
   timing: After dinner
   taste: Sweet
   ingredients:
-    - ingredient: Cognac
+    - ingredient: Brandy
       amount: 3
       unit: cl
     - ingredient: Galliano
@@ -789,7 +789,7 @@
   timing: After dinner
   taste: Sweet
   ingredients:
-    - ingredient: Cognac
+    - ingredient: Brandy
       amount: 3
       unit: cl
     - ingredient: Benedictine
@@ -843,7 +843,7 @@
   timing: After dinner
   taste: Sweet
   ingredients:
-    - ingredient: Scotch Whiskey
+    - ingredient: Scotch Whisky
       amount: 4
       unit: cl
     - ingredient: Sweet Vermouth

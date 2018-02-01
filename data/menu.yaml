@@ -5,9 +5,11 @@ menu:
       link: index.html
     - text: Gin
     - text: Whiskey
+      link: Ingredient-WhiskeyWhisky.html
     - text: Rum
     - text: Vodka
     - text: Cognac
+    - link: Ingredient-BrandyCognac.html
     - text: Champagne
 - category: Timing
   items:

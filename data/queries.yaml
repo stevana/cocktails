@@ -16,10 +16,11 @@
     RETURN {cocktails: collect(cocktail)};
   params: []
   template: site
+
 - name: Ingredient
   query: >-
     MATCH (i:Ingredient)<--(cc:Cocktail)
-    WHERE i.ingredient CONTAINS {ingredient}
+    WHERE i.ingredient =~ {ingredient}
     WITH cc AS c
     MATCH (c)-[r]->(i)
     WITH c, r, i
@@ -36,10 +37,10 @@
     ORDER BY cocktail.name
     RETURN {cocktails: collect(cocktail)};
   params:
-    - ingredient: Gin
-    - ingredient: Whiskey
-    - ingredient: Cognac
-    - ingredient: Rum
+    - ingredient: ".*Gin"
+    - ingredient: ".*(Whiskey|Whisky)"
+    - ingredient: ".*(Brandy|Cognac).*"
+    - ingredient: "(Light|Dark) Rum"
     - ingredient: Vodka
     - ingredient: Champagne
   template: site

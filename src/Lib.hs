@@ -89,20 +89,6 @@ waitForDbToBeReady = do
 
 ------------------------------------------------------------------------
 
-parseYaml :: FilePath -> IO Value
-parseYaml fp = do
-  eyaml <- decodeFileEither =<< getDataFileName fp
-  case eyaml of
-    Left  err  -> error (show err)
-    Right yaml -> return yaml
-
-mustache :: Value -> LT.Text -> LT.Text
-mustache v t = case compileMustacheText "pname" t of
-  Left  err      -> error (show err)
-  Right template -> case renderMustacheW template v of
-    ([],       t') -> t'
-    (warnings, _)  -> error (unlines (map displayMustacheWarning warnings))
-
 setupDb :: IO ()
 setupDb = do
 
@@ -127,59 +113,48 @@ setupDb = do
 
   cypher <- T.readFile (distDir </> cypherFile)
   void (post url (object [ "query" .= cypher ]))
-
-recipes :: Value -> LT.Text
-recipes v = mustache (addAlphaNumField "name" v')
-  "{{#.}}\
-  \{{#ingredients}}\
-  \CREATE ({{name-alpha-num}})-[:CONTAINS\n\
-  \  { amount: {{amount}}\n\
-  \  , unit:   \"{{unit}}\"\n\
-  \  , index:  {{index}}\n\
-  \  }]->\
-  \({{ingredient-alpha-num}})\n\
-  \{{/ingredients}}\
-  \{{/.}}"
   where
-  v' = v & values . key "ingredients" . values . _Object %~
-            (\o -> o & at "ingredient-alpha-num" .~
-              (o ^. at "ingredient" & _Just . _String %~ T.filter isAsciiAlphaNum))
-         & values . key "ingredients" . _Array %~ addIndexField
+  ingredients :: Value -> LT.Text
+  ingredients v = mustache (addAlphaNumField "ingredient" v)
+    "{{#.}}\
+    \CREATE ({{ingredient-alpha-num}}:Ingredient\
+    \  { ingredient: \"{{ingredient}}\" })\n\
+    \{{/.}}"
 
-addIndexField :: Vector Value -> Vector Value
-addIndexField vec = V.zipWith
-  (\ix o -> o & _Object . at "index" ?~ ix^.re _Integer)
-  (V.fromList [0 .. toInteger (V.length vec - 1)])
-  vec
+  cocktails :: Value -> LT.Text
+  cocktails v = mustache (addAlphaNumField "name" v)
+    "{{#.}}\
+    \CREATE ({{name-alpha-num}}:Cocktail\n\
+    \  { name:        \"{{name}}\"\n\
+    \  , timing:      \"{{timing}}\"\n\
+    \  , preparation: \"{{preparation}}\"\n\
+    \  , taste:       \"{{taste}}\"\n\
+    \  })\n\
+    \{{/.}}"
 
-cocktails :: Value -> LT.Text
-cocktails v = mustache (addAlphaNumField "name" v)
-  "{{#.}}\
-  \CREATE ({{name-alpha-num}}:Cocktail\n\
-  \  { name:        \"{{name}}\"\n\
-  \  , timing:      \"{{timing}}\"\n\
-  \  , preparation: \"{{preparation}}\"\n\
-  \  , taste:       \"{{taste}}\"\n\
-  \  })\n\
-  \{{/.}}"
-
-addAlphaNumField :: Text -> Value -> Value
-addAlphaNumField field v = v & values . _Object %~
-  (\o -> o & at (field <> "-alpha-num") .~
-    (o ^. at field & _Just . _String %~ T.filter isAsciiAlphaNum))
-
-ingredients :: Value -> LT.Text
-ingredients v = mustache (addAlphaNumField "ingredient" v)
-  "{{#.}}\
-  \CREATE ({{ingredient-alpha-num}}:Ingredient\
-  \  { ingredient: \"{{ingredient}}\" })\n\
-  \{{/.}}"
-
-isAsciiAlphaNum :: Char -> Bool
-isAsciiAlphaNum c = isAscii c && isAlphaNum c
-
-generateContent :: IO ()
-generateContent = process =<< parseYaml "data/queries.yaml"
+  recipes :: Value -> LT.Text
+  recipes v = mustache (addAlphaNumField "name" v')
+    "{{#.}}\
+    \{{#ingredients}}\
+    \CREATE ({{name-alpha-num}})-[:CONTAINS\n\
+    \  { amount: {{amount}}\n\
+    \  , unit:   \"{{unit}}\"\n\
+    \  , index:  {{index}}\n\
+    \  }]->\
+    \({{ingredient-alpha-num}})\n\
+    \{{/ingredients}}\
+    \{{/.}}"
+    where
+    v' = v & values . key "ingredients" . values . _Object %~
+              (\o -> o & at "ingredient-alpha-num" .~
+                (o ^. at "ingredient" & _Just . _String %~ T.filter isAsciiAlphaNum))
+           & values . key "ingredients" . _Array %~ addIndexField
+      where
+      addIndexField :: Vector Value -> Vector Value
+      addIndexField vec = V.zipWith
+        (\ix o -> o & _Object . at "index" ?~ ix^.re _Integer)
+        (V.fromList [0 .. toInteger (V.length vec - 1)])
+        vec
 
 makeMenu :: Value -> Value
 makeMenu v =
@@ -187,59 +162,88 @@ makeMenu v =
         (\o -> o & _Object . at "items" . _Just . values %~ (\o' ->
                      addFieldIfItDoesntExist "link" (makeLink o o') o'))
   where
+  addFieldIfItDoesntExist :: Text -> Text -> Value -> Value
+  addFieldIfItDoesntExist field value object =
+    object & _Object . at field %~ maybe (Just (String value)) Just
+
+  makeLink :: Value -> Value -> Text
   makeLink o o' =
     o^._Object . at "category" . _Just . _String
     <> "-" <>
     o'^._Object. at "text" . _Just . _String . to (T.filter isAsciiAlphaNum)
     <> ".html"
 
-addFieldIfItDoesntExist :: Text -> Text -> Value -> Value
-addFieldIfItDoesntExist field value object =
-  object & _Object . at field %~ maybe (Just (String value)) Just
-
-process :: Value -> IO ()
-process v = do
-  menuJson <- makeMenu <$> parseYaml "data/menu.yaml"
-
-  css <- getDataFileName "data/style.css"
-  copyFile css (distDir </> "style.css")
-
-  forM_ (zip4 names queries paramss templates) $ \(name, query, params, template) -> do
-    template' <- compileMustacheFile =<< getDataFileName "data/templates/site.mustache"
-
-    if V.null params
-    then do
-      r <- post url (object [ "query"  .= query
-                            , "params" .= object []
-                            ])
-      let json = r ^?! responseBody . key "data" . values . values
-          bs   = Json.encode json
-          fp   = distDir </> T.unpack name
-      -- BS.putStrLn bs
-      BS.writeFile (fp <.> ".json") bs
-      LT.writeFile (fp <.> "html") (renderMustache template' (json `mergeValue` menuJson))
-    else do
-      forM_ params $ \param -> do
-        r <- post url (object
-               [ "query"  .= query
-               , "params" .= param
-               ])
-        let json    = r ^?! responseBody . key "data" . values . values
-            bs      = Json.encode json
-            [value] = param ^?! _Object . to HM.elems
-            vstr    = value ^?! _String
-                    . to (T.unpack . T.filter isAsciiAlphaNum)
-            fp      = distDir </> T.unpack name <> "-" <> vstr
-        -- BS.putStrLn bs
-        BS.writeFile (fp <.> "json") bs
-        let json' = json `mergeValue` menuJson
-        LT.writeFile (fp <.> "html") (renderMustache template' json')
-
+generateContent :: IO ()
+generateContent = go =<< parseYaml "data/queries.yaml"
   where
-  names     = v ^.. values . key "name"     . _String
-  queries   = v ^.. values . key "query"    . _String
-  paramss   = v ^.. values . key "params"   . _Array
-  templates = v ^.. values . key "template" . _String
+  go :: Value -> IO ()
+  go v = do
+    menuJson <- makeMenu <$> parseYaml "data/menu.yaml"
+
+    css <- getDataFileName "data/style.css"
+    copyFile css (distDir </> "style.css")
+
+    forM_ (zip4 names queries paramss templates) $ \(name, query, params, template) -> do
+      template' <- compileMustacheFile =<< getDataFileName "data/templates/site.mustache"
+
+      if V.null params
+      then do
+        r <- post url (object [ "query"  .= query
+                              , "params" .= object []
+                              ])
+        let json = r ^?! responseBody . key "data" . values . values
+            bs   = Json.encode json
+            fp   = distDir </> T.unpack name
+        -- BS.putStrLn bs
+        BS.writeFile (fp <.> ".json") bs
+        LT.writeFile (fp <.> "html")
+                     (renderMustache template' (json `mergeValue` menuJson))
+      else do
+        forM_ params $ \param -> do
+          r <- post url (object
+                 [ "query"  .= query
+                 , "params" .= param
+                 ])
+          let json    = r ^?! responseBody . key "data" . values . values
+              bs      = Json.encode json
+              [value] = param ^?! _Object . to HM.elems
+              vstr    = value ^?! _String
+                      . to (T.unpack . T.filter isAsciiAlphaNum)
+              fp      = distDir </> T.unpack name <> "-" <> vstr
+          -- BS.putStrLn bs
+          BS.writeFile (fp <.> "json") bs
+          let json' = json `mergeValue` menuJson
+          LT.writeFile (fp <.> "html") (renderMustache template' json')
+
+    where
+    names     = v ^.. values . key "name"     . _String
+    queries   = v ^.. values . key "query"    . _String
+    paramss   = v ^.. values . key "params"   . _Array
+    templates = v ^.. values . key "template" . _String
+
+------------------------------------------------------------------------
 
 mergeValue :: Value -> Value -> Value
 mergeValue (Object hm1) (Object hm2) = Object (hm1 <> hm2)
+
+isAsciiAlphaNum :: Char -> Bool
+isAsciiAlphaNum c = isAscii c && isAlphaNum c
+
+parseYaml :: FilePath -> IO Value
+parseYaml fp = do
+  eyaml <- decodeFileEither =<< getDataFileName fp
+  case eyaml of
+    Left  err  -> error (show err)
+    Right yaml -> return yaml
+
+mustache :: Value -> LT.Text -> LT.Text
+mustache v t = case compileMustacheText "pname" t of
+  Left  err      -> error (show err)
+  Right template -> case renderMustacheW template v of
+    ([],       t') -> t'
+    (warnings, _)  -> error (unlines (map displayMustacheWarning warnings))
+
+addAlphaNumField :: Text -> Value -> Value
+addAlphaNumField field v = v & values . _Object %~
+  (\o -> o & at (field <> "-alpha-num") .~
+    (o ^. at field & _Just . _String %~ T.filter isAsciiAlphaNum))
