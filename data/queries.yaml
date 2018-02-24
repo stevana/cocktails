@@ -42,7 +42,8 @@
     - ingredient: ".*(Brandy|Cognac).*"
     - ingredient: "(Light|Dark) Rum"
     - ingredient: Vodka
-    - ingredient: Champagne
+    - ingredient: ".*(Korn|Kümmel).*"
+    - ingredient: ".*(Champagne|Prosecco).*"
   template: site
 
 - name: Timing

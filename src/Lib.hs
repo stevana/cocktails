@@ -14,11 +14,12 @@ import           Control.Lens               (at, folded, ifolded, re, review,
                                              to, traversed, withIndex, (%~),
                                              (&), (.~), (?~), (^.), (^..), (^?),
                                              (^?!), (^@..), _Just)
-import           Control.Monad
+import           Control.Monad              (void)
 import           Data.Aeson                 as Json
 import           Data.Aeson.Lens
 import qualified Data.ByteString.Lazy.Char8 as BS
 import           Data.Char                  (isAlphaNum, isAscii)
+import           Data.Foldable              (for_)
 import qualified Data.HashMap.Lazy          as HM
 import           Data.List                  (zip4)
 import           Data.Scientific
@@ -183,14 +184,17 @@ generateContent = go =<< parseYaml "data/queries.yaml"
     css <- getDataFileName "data/style.css"
     copyFile css (distDir </> "style.css")
 
-    forM_ (zip4 names queries paramss templates) $ \(name, query, params, template) -> do
-      template' <- compileMustacheFile =<< getDataFileName "data/templates/site.mustache"
+    template' <- compileMustacheFile =<< getDataFileName "data/templates/site.mustache"
+
+    for_ (v ^.. values) $ \value -> do
+      let name     = value ^. key "name"  ._String
+          query    = value ^. key "query" . _String
+          params   = value ^. key "params" . _Array
+          template = value ^. key "template" . _String
 
       if V.null params
       then do
-        r <- post url (object [ "query"  .= query
-                              , "params" .= object []
-                              ])
+        r <- post url (object [ "query"  .= query ])
         let json = r ^?! responseBody . key "data" . values . values
             bs   = Json.encode json
             fp   = distDir </> T.unpack name
@@ -199,7 +203,7 @@ generateContent = go =<< parseYaml "data/queries.yaml"
         LT.writeFile (fp <.> "html")
                      (renderMustache template' (json `mergeValue` menuJson))
       else do
-        forM_ params $ \param -> do
+        for_ params $ \param -> do
           r <- post url (object
                  [ "query"  .= query
                  , "params" .= param
@@ -214,12 +218,6 @@ generateContent = go =<< parseYaml "data/queries.yaml"
           BS.writeFile (fp <.> "json") bs
           let json' = json `mergeValue` menuJson
           LT.writeFile (fp <.> "html") (renderMustache template' json')
-
-    where
-    names     = v ^.. values . key "name"     . _String
-    queries   = v ^.. values . key "query"    . _String
-    paramss   = v ^.. values . key "params"   . _Array
-    templates = v ^.. values . key "template" . _String
 
 ------------------------------------------------------------------------
 

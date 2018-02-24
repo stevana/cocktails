@@ -218,6 +218,24 @@
   preparation: Shaken
   source: The Savoy Cocktail Book, Harry Craddock (1930)
 
+- name: Toronto
+  timing: Pre-dinner
+  taste: Bitter sweet
+  ingredients:
+    - ingredient: Canadian Whisky
+      amount: 6
+      unit: cl
+    - ingredient: Fernet-Branca
+      amount: 2
+      unit: cl
+    - ingredient: Simple syrup
+      amount: 1
+      unit: cl
+    - ingredient: Angostura bitters
+      amount: 4
+      unit: dashes
+  preparation: Stirred
+
 - name: Cynar Toronto
   timing: Pre-dinner
   taste: Bitter sweet
@@ -260,6 +278,66 @@
       unit: cl
   preparation: Stirred
   source: The Savoy Cocktail Book, Harry Craddock (1930)
+
+- name: Bellini
+  timing: All day
+  taste: Fresh
+  ingredients:
+    - ingredient: Prosecco
+      amount: 10
+      unit: cl
+    - ingredient: Peach pure
+      amount: 5
+      unit: cl
+  preparation: Stirred
+
+- name: Kir royal
+  timing: All day
+  taste: Fresh
+  ingredients:
+    - ingredient: Champagne
+      amount: 9
+      unit: cl
+    - ingredient: Crème de cassis
+      amount: 1
+      unit: cl
+  preparation: Stirred
+
+- name: Champagne cocktail
+  timing: All day
+  taste: Fresh
+  ingredients:
+    - ingredient: Champagne
+      amount: 9
+      unit: cl
+    - ingredient: Cognac
+      amount: 1
+      unit: cl
+    - ingredient: Simple syrup
+      amount: 1
+      unit: cl
+    - ingredient: Angostura
+      amount: 2
+      unit: dashes
+  preparation: Stirred
+
+- name: French 75
+  timing: All day
+  taste: Fresh
+  ingredients:
+    - ingredient: Champagne
+      amount: 6
+      unit: cl
+    - ingredient: Gin
+      amount: 3
+      unit: cl
+    - ingredient: Lemon juice
+      amount: 1.5
+      unit: cl
+    - ingredient: Simple syrup
+      amount: 2
+      unit: dashes
+  preparation: Stirred
 
 - name: Boulevard
   timing: Pre-dinner
@@ -892,7 +970,7 @@
   timing: All day
   taste: Fresh
   ingredients:
-    - ingredient: Kümmel Korn
+    - ingredient: Kümmel
       amount: 6
       unit: cl
     - ingredient: Grapefruit juice

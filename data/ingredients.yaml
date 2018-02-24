@@ -6,6 +6,7 @@
 - ingredient: Bourbon Whiskey
 - ingredient: Brandy
 - ingredient: Cachaca
+- ingredient: Crème de cassis
 - ingredient: Cynar
 - ingredient: Calvados
 - ingredient: Campari
@@ -39,6 +40,7 @@
 - ingredient: Orange juice
 - ingredient: Orgeat
 - ingredient: Peach bitters
+- ingredient: Peach pure
 - ingredient: "Peychaud's bitters"
 - ingredient: Pineapple juice
 - ingredient: Port wine
@@ -59,5 +61,6 @@
 - ingredient: Red wine syrup
 - ingredient: Crème de Violette
 - ingredient: Lillet Blanc
-- ingredient: Kümmel Korn
+- ingredient: Kümmel
+- ingredient: Korn
 - ingredient: Drambuie

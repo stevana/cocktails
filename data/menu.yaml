@@ -8,9 +8,12 @@ menu:
       link: Ingredient-WhiskeyWhisky.html
     - text: Rum
     - text: Vodka
+    - text: Korn / Kümmel
+      link: Ingredient-KornKmmel.html
     - text: Cognac
-    - link: Ingredient-BrandyCognac.html
+      link: Ingredient-BrandyCognac.html
     - text: Champagne
+      link: Ingredient-ChampagneProsecco.html
 - category: Timing
   items:
     - text: Pre-dinner
