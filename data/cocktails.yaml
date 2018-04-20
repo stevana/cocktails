@@ -674,6 +674,25 @@
       unit: cl
   preparation: Shaken
 
+- name: Buttermilk maple gin flip
+  timing: After dinner
+  taste: Unknown
+  ingredients:
+    - ingredient: Gin
+      amount: 6
+      unit: cl
+    - ingredient: Buttermilk
+      amount: 3
+      unit: cl
+    - ingredient: Egg
+      amount: 1
+      unit: whole
+    - ingredient: Maple syrup
+      amount: 1
+      unit: bar spoon
+  preparation: Shaken
+  source: Serious eats
+
 - name: Rusty nail
   timing: After dinner
   taste: Boozy
@@ -981,3 +1000,18 @@
       unit: bar spoon
   preparation: Shaken
   source: Liquid Intelligence
+
+- name: Adriatique
+  timing: All day
+  taste: Fresh
+  ingredients:
+    - ingredient: Amaro Montenegro
+      amount: 3
+      unit: cl
+    - ingredient: Orange juice
+      amount: 3
+      unit: cl
+    - ingredient: Aperol
+      amount: 1.5
+      unit: cl
+  preparation: Shaken
