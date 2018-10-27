@@ -251,6 +251,22 @@
       unit: dashes
   preparation: Stirred
 
+- name: Cynartown
+  timing: Pre-dinner
+  taste: Bitter sweet
+  ingredients:
+    - ingredient: Gin
+      amount: 6
+      unit: cl
+    - ingredient: Sweet Vermouth
+      amount: 2.25
+      unit: cl
+    - ingredient: Cynar
+      amount: 1.5
+      unit: cl
+  preparation: Stirred
+  source: Death & Co book
+
 - name: Bitter Mimosa
   timing: All day
   taste: Fresh
