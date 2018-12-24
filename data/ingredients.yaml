@@ -6,7 +6,8 @@
 - ingredient: Bourbon Whiskey
 - ingredient: Brandy
 - ingredient: Cachaca
-- ingredient: Crème de cassis
+- ingredient: "Crème de cassis"
+- ingredient: "Crème Yvette"
 - ingredient: Cynar
 - ingredient: Calvados
 - ingredient: Campari

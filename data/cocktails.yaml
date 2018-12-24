@@ -408,6 +408,28 @@
   preparation: Shaken
   source: Recipes for Mixed Drinks by Hugo Ensslin (1916)
 
+- name: Bella Luna
+  timing: All day
+  taste: Fresh
+  ingredients:
+    - ingredient: Gin
+      amount: 6
+      unit: cl
+    - ingredient: Lemon juice
+      amount: 2.2
+      unit: cl
+    - ingredient: "St. Germain"
+      amount: 2.2
+      unit: cl
+    - ingredient: "Crème Yvette"
+      amount: 1.5
+      unit: cl
+    - ingredient: Simple syrup
+      amount: 1
+      unit: tsp
+  preparation: Shaken
+  source: Death & Co book
+
 - name: White lady
   timing: All day
   taste: Fresh
