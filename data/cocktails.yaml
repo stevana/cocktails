@@ -430,6 +430,25 @@
   preparation: Shaken
   source: Death & Co book
 
+- name: Last Word
+  timing: Pre-dinner
+  taste: Fresh
+  ingredients:
+    - ingredient: Gin
+      amount:
+      unit: cl
+    - ingredient: Lime juice
+      amount: 2
+      unit: cl
+    - ingredient: Maraschino
+      amount: 2
+      unit: cl
+    - ingredient: Green Chartreuse
+      amount: 2
+      unit: cl
+  preparation: Shaken
+  source: Originally developed at the Detroit Athletic Club (Wikipedia).
+
 - name: White lady
   timing: All day
   taste: Fresh
@@ -796,7 +815,7 @@
       amount: 3
       unit: cl
   preparation: Stirred
-  
+
 - name: Vesper
   timing: Pre-dinner
   taste: Boozy
@@ -1051,5 +1070,23 @@
       unit: cl
     - ingredient: Aperol
       amount: 1.5
+      unit: cl
+  preparation: Shaken
+
+- name: 20th Century
+  timing: All day
+  taste: Fresh
+  ingredients:
+    - ingredient: Gin
+      amount: 4.5
+      unit: cl
+    - ingredient: Lillet Blanc
+      amount: 2
+      unit: cl
+    - ingredient: "Light crème de cacao"
+      amount: 1.5
+      unit: cl
+    - ingredient: Lemon juice
+      amount: 2
       unit: cl
   preparation: Shaken
