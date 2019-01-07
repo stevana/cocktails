@@ -435,7 +435,7 @@
   taste: Fresh
   ingredients:
     - ingredient: Gin
-      amount:
+      amount: 2
       unit: cl
     - ingredient: Lime juice
       amount: 2
@@ -649,7 +649,7 @@
 
 - name: Blinker
   timing: All day
-  taste: Unknown
+  taste: Fresh
   ingredients:
     - ingredient: Rye Whiskey
       amount: 6
@@ -1073,7 +1073,7 @@
       unit: cl
   preparation: Shaken
 
-- name: 20th Century
+- name: Twentieth Century
   timing: All day
   taste: Fresh
   ingredients:
