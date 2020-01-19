@@ -1092,8 +1092,8 @@
   preparation: Shaken
 
 - name: Irish coffee
-  timing: All day
-  taste: Hot
+  timing: After dinner
+  taste: Boozy
   ingredients:
     - ingredient: Whiskey
       amount: 4
