@@ -1090,3 +1090,19 @@
       amount: 2
       unit: cl
   preparation: Shaken
+
+- name: Irish coffee
+  timing: All day
+  taste: Hot
+  ingredients:
+    - ingredient: Whiskey
+      amount: 4
+      unit: cl
+    - ingredient: Coffee
+      amount: 9
+      unit: cl
+    - ingredient: Fresh cream
+      amount: 3
+      unit: cl
+  preparation: Stirred
+  source: IBA

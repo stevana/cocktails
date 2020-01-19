@@ -56,6 +56,7 @@
 - ingredient: Triple Sec
 - ingredient: Vodka
 - ingredient: Scotch Whisky
+- ingredient: Irish Whiskey
 - ingredient: Yellow Chartreuse
 - ingredient: Soda water
 - ingredient: Egg
@@ -71,3 +72,5 @@
 - ingredient: Amaro Montenegro
 - ingredient: Aperol
 - ingredient: Prosecco
+- ingredient: "Fresh cream"
+- ingredient: Coffee
