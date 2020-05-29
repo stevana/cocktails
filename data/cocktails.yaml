@@ -1106,3 +1106,19 @@
       unit: cl
   preparation: Stirred
   source: IBA
+
+- name: Margarita
+  timing: All day
+  taste: Fresh
+  ingredients:
+    - ingredient: Tequila
+      amount: 5
+      unit: cl
+    - ingredient: Triple sec
+      amount: 2
+      unit: cl
+    - ingredient: Lime juice
+      amount: 1.5
+      unit: cl
+  preparation: Shaken
+  source: IBA
