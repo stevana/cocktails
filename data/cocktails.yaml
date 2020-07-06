@@ -1122,3 +1122,24 @@
       unit: cl
   preparation: Shaken
   source: IBA
+
+- name: Enzoni
+  timing: All day
+  taste: Fresh
+  ingredients:
+    - ingredient: Gin
+      amount: 3
+      unit: cl
+    - ingredient: Campari
+      amount: 3
+      unit: cl
+    - ingredient: Lemon juice
+      amount: 2.2
+      unit: cl
+    - ingredient: Simple syrup
+      amount: 1.5
+      unit: cl
+    - ingredient: White grapes
+      amount: 5
+      unit: whole
+  preparation: Shaken
