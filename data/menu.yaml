@@ -15,6 +15,7 @@ menu:
       link: Ingredient-BrandyCognac.html
     - text: Champagne / Prosecco
       link: Ingredient-ChampagneProsecco.html
+    - text: Tequila
 - category: Timing
   items:
     - text: Pre-dinner

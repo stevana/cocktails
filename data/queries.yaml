@@ -44,6 +44,7 @@
     - ingredient: Vodka
     - ingredient: ".*(Korn|Kümmel).*"
     - ingredient: ".*(Champagne|Prosecco).*"
+    - ingredient: Tequila
   template: site
 
 - name: Timing
