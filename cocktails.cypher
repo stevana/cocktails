@@ -75,6 +75,7 @@ CREATE (Prosecco:Ingredient  { ingredient: "Prosecco" })
 CREATE (Freshcream:Ingredient  { ingredient: "Fresh cream" })
 CREATE (Coffee:Ingredient  { ingredient: "Coffee" })
 CREATE (Whitegrapes:Ingredient  { ingredient: "White grapes" })
+CREATE (CanadianWhisky:Ingredient  { ingredient: "Canadian Whisky" })
 CREATE (Americano:Cocktail
   { name:        "Americano"
   , timing:      "Pre-dinner"
