@@ -1,0 +1,40 @@
+name: main
+
+env:
+  LANG: C.UTF-8
+
+on:
+  pull_request:
+  push:
+    branches:
+    - master
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    name: build and deploy
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: haskell/actions/setup@v2
+        with:
+          enable-stack: true
+          stack-no-global: true
+          stack-version: '2.7.5'
+      - uses: actions/cache@v3
+        with:
+          path: ~/.stack/
+          key: ${{ runner.os }}-${{ hashFiles('stack.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      - name: build dependencies
+        run: stack --no-terminal --install-ghc test --only-dependencies --fast
+      - name: build
+        run: stack --no-terminal test --haddock --no-haddock-deps
+      - name: run
+        run: stack --no-terminal exec cocktails -- --start-db
+      - name: deploy gh pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          token: $GITHUB_TOKEN
