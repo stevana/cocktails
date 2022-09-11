@@ -1,6 +1,6 @@
 ## cocktails
 
-[![Build Status](https://api.travis-ci.org/stevana/cocktails.svg?branch=master)](https://travis-ci.org/stevana/cocktails)
+[![Build status](https://github.com/stevana/cocktails/actions/workflows/main.yml/badge.svg)](https://github.com/stevana/cocktails/actions)
 
 This repository contains a cocktail database and a program that
 generates a static webpages from said database.
