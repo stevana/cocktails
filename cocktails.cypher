@@ -77,6 +77,9 @@ CREATE (Coffee:Ingredient  { ingredient: "Coffee" })
 CREATE (Whitegrapes:Ingredient  { ingredient: "White grapes" })
 CREATE (CanadianWhisky:Ingredient  { ingredient: "Canadian Whisky" })
 CREATE (Kohlrabileaves:Ingredient  { ingredient: "Kohlrabi leaves" })
+CREATE (Worcestershiresauce:Ingredient  { ingredient: "Worcestershire sauce" })
+CREATE (Tomatojuice:Ingredient  { ingredient: "Tomato juice" })
+CREATE (Tabasco:Ingredient  { ingredient: "Tabasco" })
 CREATE (Americano:Cocktail
   { name:        "Americano"
   , timing:      "Pre-dinner"
@@ -512,8 +515,14 @@ CREATE (Enzoni:Cocktail
 CREATE (TommyKohlrabins:Cocktail
   { name:        "Tommy Kohlrabins"
   , timing:      "Longdrink"
-  , preparation: "Blend leaves with gin and shake."
+  , preparation: "Blend leaves with gin and shake"
   , taste:       "Fresh"
+  })
+CREATE (BloodyMary:Cocktail
+  { name:        "Bloody Mary"
+  , timing:      "All day"
+  , preparation: "Stirred, season with salt and pepper."
+  , taste:       "Salty"
   })
 CREATE (Americano)-[:CONTAINS
   { amount: 3
@@ -1710,3 +1719,28 @@ CREATE (TommyKohlrabins)-[:CONTAINS
   , unit:   "cl"
   , index:  4
   }]->(Sodawater)
+CREATE (BloodyMary)-[:CONTAINS
+  { amount: 4.5
+  , unit:   "cl"
+  , index:  0
+  }]->(Vodka)
+CREATE (BloodyMary)-[:CONTAINS
+  { amount: 9
+  , unit:   "cl"
+  , index:  1
+  }]->(Tomatojuice)
+CREATE (BloodyMary)-[:CONTAINS
+  { amount: 1.5
+  , unit:   "cl"
+  , index:  2
+  }]->(Lemonjuice)
+CREATE (BloodyMary)-[:CONTAINS
+  { amount: 2
+  , unit:   "dashes"
+  , index:  3
+  }]->(Worcestershiresauce)
+CREATE (BloodyMary)-[:CONTAINS
+  { amount: 2
+  , unit:   "dashes"
+  , index:  4
+  }]->(Tabasco)
