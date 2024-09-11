@@ -1185,4 +1185,28 @@
     - ingredient: Tabasco
       amount: 2
       unit: dashes
-  preparation: Stirred, season with salt and pepper.
+  preparation: Stirred, season with salt and pepper
+
+- name: Buttermilk Margarita
+  timing: All day
+  taste: Sour
+  ingredients:
+    - ingredient: Tequila
+      amount: 5
+      unit: cl
+    - ingredient: Buttermilk
+      amount: 3
+      unit: cl
+    - ingredient: Lime juice
+      amount: 2
+      unit: cl
+    - ingredient: Lemon juice
+      amount: 1
+      unit: cl
+    - ingredient: Agave syrup
+      amount: 2
+      unit: cl
+    - ingredient: Quince jelly
+      amount: 1
+      unit: bar spoon
+  preparation: Shaken
