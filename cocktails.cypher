@@ -80,6 +80,8 @@ CREATE (Kohlrabileaves:Ingredient  { ingredient: "Kohlrabi leaves" })
 CREATE (Worcestershiresauce:Ingredient  { ingredient: "Worcestershire sauce" })
 CREATE (Tomatojuice:Ingredient  { ingredient: "Tomato juice" })
 CREATE (Tabasco:Ingredient  { ingredient: "Tabasco" })
+CREATE (Quincejelly:Ingredient  { ingredient: "Quince jelly" })
+CREATE (Agavesyrup:Ingredient  { ingredient: "Agave syrup" })
 CREATE (Americano:Cocktail
   { name:        "Americano"
   , timing:      "Pre-dinner"
@@ -521,8 +523,14 @@ CREATE (TommyKohlrabins:Cocktail
 CREATE (BloodyMary:Cocktail
   { name:        "Bloody Mary"
   , timing:      "All day"
-  , preparation: "Stirred, season with salt and pepper."
+  , preparation: "Stirred, season with salt and pepper"
   , taste:       "Salty"
+  })
+CREATE (ButtermilkMargarita:Cocktail
+  { name:        "Buttermilk Margarita"
+  , timing:      "All day"
+  , preparation: "Shaken"
+  , taste:       "Sour"
   })
 CREATE (Americano)-[:CONTAINS
   { amount: 3
@@ -1744,3 +1752,33 @@ CREATE (BloodyMary)-[:CONTAINS
   , unit:   "dashes"
   , index:  4
   }]->(Tabasco)
+CREATE (ButtermilkMargarita)-[:CONTAINS
+  { amount: 5
+  , unit:   "cl"
+  , index:  0
+  }]->(Tequila)
+CREATE (ButtermilkMargarita)-[:CONTAINS
+  { amount: 3
+  , unit:   "cl"
+  , index:  1
+  }]->(Buttermilk)
+CREATE (ButtermilkMargarita)-[:CONTAINS
+  { amount: 2
+  , unit:   "cl"
+  , index:  2
+  }]->(Limejuice)
+CREATE (ButtermilkMargarita)-[:CONTAINS
+  { amount: 1
+  , unit:   "cl"
+  , index:  3
+  }]->(Lemonjuice)
+CREATE (ButtermilkMargarita)-[:CONTAINS
+  { amount: 2
+  , unit:   "cl"
+  , index:  4
+  }]->(Agavesyrup)
+CREATE (ButtermilkMargarita)-[:CONTAINS
+  { amount: 1
+  , unit:   "bar spoon"
+  , index:  5
+  }]->(Quincejelly)
