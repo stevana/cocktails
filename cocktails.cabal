@@ -1,0 +1,111 @@
+cabal-version:      1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: b4e34a8186e15169923f1545685f433923a6b6c8e7e7cd2f0b37b01c8e685ba9
+
+name:               cocktails
+version:            0.1.0.0
+description:
+  Please see the README on Github at <https://github.com/stevana/cocktails#readme>
+
+homepage:           https://github.com/stevana/cocktails#readme
+bug-reports:        https://github.com/stevana/cocktails/issues
+author:             Stevan Andjelkovic
+maintainer:         example@example.com
+copyright:          2018 Stevan Andjelkovic
+license:            BSD2
+license-file:       LICENSE
+build-type:         Simple
+extra-source-files:
+  CHANGELOG.md
+  README.md
+
+data-files:
+  data/cocktails.yaml
+  data/ingredients.yaml
+  data/menu.yaml
+  data/queries.yaml
+  data/style.css
+  data/templates/offline.mustache
+  data/templates/site.mustache
+
+source-repository head
+  type:     git
+  location: https://github.com/stevana/cocktails
+
+library
+  exposed-modules:  Lib
+  other-modules:    Paths_cocktails
+  hs-source-dirs:   src
+  build-depends:
+      aeson                 >=2.0.0
+    , base                  >=4.7   && <5
+    , bytestring
+    , directory
+    , filepath
+    , lens
+    , lens-aeson
+    , microstache
+    , process
+    , scientific
+    , text
+    , unordered-containers
+    , vector
+    , wreq
+    , yaml
+
+  default-language: Haskell2010
+
+executable cocktails
+  main-is:          Main.hs
+  other-modules:    Paths_cocktails
+  hs-source-dirs:   app
+  ghc-options:      -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base                  >=4.7 && <5
+    , bytestring
+    , cocktails
+    , directory
+    , filepath
+    , lens
+    , lens-aeson
+    , microstache
+    , process
+    , scientific
+    , text
+    , unordered-containers
+    , vector
+    , wreq
+    , yaml
+
+  default-language: Haskell2010
+
+test-suite cocktails-test
+  type:             exitcode-stdio-1.0
+  main-is:          Spec.hs
+  other-modules:    Paths_cocktails
+  hs-source-dirs:   test
+  ghc-options:      -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base                  >=4.7 && <5
+    , bytestring
+    , cocktails
+    , directory
+    , filepath
+    , lens
+    , lens-aeson
+    , microstache
+    , process
+    , scientific
+    , text
+    , unordered-containers
+    , vector
+    , wreq
+    , yaml
+
+  default-language: Haskell2010
