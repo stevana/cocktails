@@ -18,13 +18,13 @@ jobs:
     name: build and deploy
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
-      - uses: haskell/actions/setup@v2
+      - uses: actions/checkout@v4
+      - uses: haskell-actions/setup
         with:
           enable-stack: true
           stack-no-global: true
           stack-version: '2.7.5'
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: ~/.stack/
           key: ${{ runner.os }}-${{ hashFiles('stack.yaml') }}
