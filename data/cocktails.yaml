@@ -1210,3 +1210,18 @@
       amount: 1
       unit: bar spoon
   preparation: Shaken
+
+- name: Kalte Ente
+  timing: All day
+  taste: Fresh
+  ingredients:
+    - ingredient: Wine
+      amount: 75
+      unit: cl
+    - ingredient: Sekt
+      amount: 75
+      unit: cl
+    - ingredient: Soda water
+      amount: 5
+      unit: splashes
+  preparation: Stirred, garnish with zest from 2 lemons

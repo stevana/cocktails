@@ -13,8 +13,8 @@ menu:
       link: Ingredient-KornKmmel.html
     - text: Cognac
       link: Ingredient-BrandyCognac.html
-    - text: Champagne / Prosecco
-      link: Ingredient-ChampagneProsecco.html
+    - text: Champagne / Prosecco / Sekt
+      link: Ingredient-ChampagneProseccoSekt.html
     - text: Tequila
 - category: Timing
   items:

@@ -43,7 +43,7 @@
     - ingredient: "(Light|Dark) Rum"
     - ingredient: Vodka
     - ingredient: ".*(Korn|Kümmel).*"
-    - ingredient: ".*(Champagne|Prosecco).*"
+    - ingredient: ".*(Champagne|Prosecco|Sekt).*"
     - ingredient: Tequila
   template: site
 

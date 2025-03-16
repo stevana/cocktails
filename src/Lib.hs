@@ -17,10 +17,11 @@ import           Control.Lens               (at, folded, ifolded, re, review,
 import           Control.Monad              (void)
 import           Data.Aeson                 as Json
 import           Data.Aeson.Lens
+import qualified Data.Aeson.Key as Json
+import qualified Data.Aeson.KeyMap as Json
 import qualified Data.ByteString.Lazy.Char8 as BS
 import           Data.Char                  (isAlphaNum, isAscii)
 import           Data.Foldable              (for_)
-import qualified Data.HashMap.Lazy          as HM
 import           Data.List                  (zip4)
 import           Data.Scientific
 import           Data.Semigroup             ((<>))
@@ -165,7 +166,7 @@ makeMenu v =
   where
   addFieldIfItDoesntExist :: Text -> Text -> Value -> Value
   addFieldIfItDoesntExist field value object =
-    object & _Object . at field %~ maybe (Just (String value)) Just
+    object & _Object . at (Json.fromText field) %~ maybe (Just (String value)) Just
 
   makeLink :: Value -> Value -> Text
   makeLink o o' =
@@ -210,7 +211,7 @@ generateContent = go =<< parseYaml "data/queries.yaml"
                  ])
           let json    = r ^?! responseBody . key "data" . values . values
               bs      = Json.encode json
-              [value] = param ^?! _Object . to HM.elems
+              [value] = param ^?! _Object . to Json.elems
               vstr    = value ^?! _String
                       . to (T.unpack . T.filter isAsciiAlphaNum)
               fp      = distDir </> T.unpack name <> "-" <> vstr
@@ -243,5 +244,5 @@ mustache v t = case compileMustacheText "pname" t of
 
 addAlphaNumField :: Text -> Value -> Value
 addAlphaNumField field v = v & values . _Object %~
-  (\o -> o & at (field <> "-alpha-num") .~
-    (o ^. at field & _Just . _String %~ T.filter isAsciiAlphaNum))
+  (\o -> o & at (Json.fromText (field <> "-alpha-num")) .~
+    (o ^. at (Json.fromText field) & _Just . _String %~ T.filter isAsciiAlphaNum))
