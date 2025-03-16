@@ -82,6 +82,8 @@ CREATE (Tomatojuice:Ingredient  { ingredient: "Tomato juice" })
 CREATE (Tabasco:Ingredient  { ingredient: "Tabasco" })
 CREATE (Quincejelly:Ingredient  { ingredient: "Quince jelly" })
 CREATE (Agavesyrup:Ingredient  { ingredient: "Agave syrup" })
+CREATE (Whitewine:Ingredient  { ingredient: "White wine" })
+CREATE (Sekt:Ingredient  { ingredient: "Sekt" })
 CREATE (Americano:Cocktail
   { name:        "Americano"
   , timing:      "Pre-dinner"
@@ -531,6 +533,12 @@ CREATE (ButtermilkMargarita:Cocktail
   , timing:      "All day"
   , preparation: "Shaken"
   , taste:       "Sour"
+  })
+CREATE (KalteEnte:Cocktail
+  { name:        "Kalte Ente"
+  , timing:      "All day"
+  , preparation: "Stirred, garnish with zest from 2 lemons"
+  , taste:       "Fresh"
   })
 CREATE (Americano)-[:CONTAINS
   { amount: 3
@@ -1782,3 +1790,18 @@ CREATE (ButtermilkMargarita)-[:CONTAINS
   , unit:   "bar spoon"
   , index:  5
   }]->(Quincejelly)
+CREATE (KalteEnte)-[:CONTAINS
+  { amount: 75
+  , unit:   "cl"
+  , index:  0
+  }]->(Wine)
+CREATE (KalteEnte)-[:CONTAINS
+  { amount: 75
+  , unit:   "cl"
+  , index:  1
+  }]->(Sekt)
+CREATE (KalteEnte)-[:CONTAINS
+  { amount: 5
+  , unit:   "splashes"
+  , index:  2
+  }]->(Sodawater)
