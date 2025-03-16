@@ -1794,7 +1794,7 @@ CREATE (KalteEnte)-[:CONTAINS
   { amount: 75
   , unit:   "cl"
   , index:  0
-  }]->(Wine)
+  }]->(Whitewine)
 CREATE (KalteEnte)-[:CONTAINS
   { amount: 75
   , unit:   "cl"
