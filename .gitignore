@@ -2,3 +2,4 @@
 cocktails.cabal
 *~
 dist/
+dist-newstyle/
