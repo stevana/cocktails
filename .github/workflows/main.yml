@@ -20,22 +20,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: haskell-actions/setup@v2
-        with:
-          enable-stack: true
-          stack-no-global: true
-          stack-version: '2.7.5'
-      - uses: actions/cache@v4
-        with:
-          path: ~/.stack/
-          key: ${{ runner.os }}-${{ hashFiles('stack.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-
       - name: build dependencies
-        run: stack --no-terminal --install-ghc test --only-dependencies --fast
+        run: cabal build --only-dependencies
       - name: build
-        run: stack --no-terminal test --haddock --no-haddock-deps
+        run: cabal build
       - name: run
-        run: stack --no-terminal exec cocktails -- --start-db
+        run: cabal run cocktails -- --start-db
       - name: deploy gh pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
