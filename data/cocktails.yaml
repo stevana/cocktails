@@ -1225,3 +1225,24 @@
       amount: 5
       unit: splashes
   preparation: Stirred, garnish with zest from 2 lemons
+
+- name: Pina Colada
+  timing: All day
+  taste: Fresh
+  ingredients:
+    - ingredient: White rum
+      amount: 50
+      unit: ml
+    - ingredient: Coconut cream
+      amount: 30
+      unit: ml
+    - ingredient: Pineapple juice
+      amount: 50
+      unit: ml
+    - ingredient: Lime juice
+      amount: 3
+      unit: drops
+
+  preparation: Blend all the ingredients with ice in a electric blender, add lime juice to taste
+
+
